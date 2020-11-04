@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Car Info With AI</string>
+    <string name="register_button">Already Registered? <b>Login Here</b></string>
+</resources>
