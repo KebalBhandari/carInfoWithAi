@@ -135,7 +135,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="30dp"
-        android:text="@string/register_button1"
         android:textColor="@color/textHeadline"
         android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"

@@ -1,3 +1,11 @@
 <resources>
-    <string name="register_button1">Don\'t have an account? <b>Register Here</b></string>
+    <string name="app_name">Car Info With AI</string>
+    <string name="register_button">Already Registered? <b>Login Here</b></string>
+    <!-- Category name for the vocabulary words for numbers [CHAR LIMIT=20] -->
+    <string name="category_numbers">Numbers</string>
+
+    <!-- Category name for the vocabulary words for family members [CHAR LIMIT=20] -->
+    <string name="category_family">Family </string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
