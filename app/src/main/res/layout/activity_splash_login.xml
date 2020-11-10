@@ -12,18 +12,19 @@
         android:id="@+id/imgView_logo"
         android:layout_width="130dp"
         android:layout_height="130dp"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="120dp"
         android:scaleType="centerInside"
         android:src="@drawable/aaa"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/imgView_cloudLeft"
-        android:layout_width="130dp"
-        android:layout_height="130dp"
-        android:layout_marginTop="16dp"
+        android:layout_width="95dp"
+        android:layout_height="105dp"
+        android:layout_marginTop="72dp"
         android:scaleType="centerInside"
         android:src="@drawable/info"
         android:translationX="-20dp"
@@ -33,9 +34,9 @@
 
     <ImageView
         android:id="@+id/imgView_cloudRight"
-        android:layout_width="130dp"
-        android:layout_height="130dp"
-        android:layout_marginTop="120dp"
+        android:layout_width="81dp"
+        android:layout_height="102dp"
+        android:layout_marginTop="164dp"
         android:scaleType="centerInside"
         android:src="@drawable/camera"
         android:translationX="20dp"
@@ -134,12 +135,13 @@
         android:id="@+id/tv_register"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="30dp"
+        android:text="@string/register_button"
         android:textColor="@color/textHeadline"
-        android:textSize="14sp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:layout_marginBottom="30dp"
+        app:layout_constraintStart_toStartOf="parent"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent" />
 
     <ProgressBar
         android:id="@+id/progressBar"

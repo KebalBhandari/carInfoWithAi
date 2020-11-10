@@ -46,10 +46,10 @@ public class SignUp extends AppCompatActivity  {
         progressBar = findViewById(R.id.progressBar);
 //        onBackPressed();
 
-        if(fAuth.getCurrentUser() != null){
-            startActivity(new Intent(getApplicationContext(),MainActivity.class));
-            finish();
-        }
+//        if(fAuth.getCurrentUser() != null){
+//            startActivity(new Intent(getApplicationContext(),MainActivity.class));
+//            finish();
+//        }
 
         loginRedirect.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -87,6 +87,7 @@ public class SignUp extends AppCompatActivity  {
                         if(task.isSuccessful()){
                             Toast.makeText(SignUp.this, "User Created.", Toast.LENGTH_SHORT).show();
                             startActivity(new Intent(getApplicationContext(),MainActivity.class));
+                            progressBar.setVisibility(View.INVISIBLE);
                         }
                         else{
                             Toast.makeText(SignUp.this, "Error"+ Objects.requireNonNull(task.getException()).getMessage(), Toast.LENGTH_SHORT).show();

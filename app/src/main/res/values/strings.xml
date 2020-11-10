@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">Car Info With AI</string>
-    <string name="register_button">Already Registered? <b>Login Here</b></string>
+    <string name="login_button">Already Registered? <b>Login Here</b></string>
+    <string name="register_button">Dont have an account? <b>Register Here</b></string>
     <!-- Category name for the vocabulary words for numbers [CHAR LIMIT=20] -->
     <string name="category_numbers">Numbers</string>
 

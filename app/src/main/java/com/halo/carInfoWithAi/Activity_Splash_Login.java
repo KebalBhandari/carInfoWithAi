@@ -74,6 +74,7 @@ public class Activity_Splash_Login extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             Toast.makeText(Activity_Splash_Login.this, "Login Successful.", Toast.LENGTH_SHORT).show();
                             startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                            progressBar.setVisibility(View.INVISIBLE);
                         } else {
                             Toast.makeText(Activity_Splash_Login.this, "Error" + Objects.requireNonNull(task.getException()).getMessage(), Toast.LENGTH_SHORT).show();
                             progressBar.setVisibility(View.GONE);
