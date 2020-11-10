@@ -1,12 +1,12 @@
 package com.halo.carInfoWithAi;
 
+import android.content.Intent;
+import android.os.Bundle;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
-import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -21,36 +21,33 @@ import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.Objects;
 
-public class Activity_Splash_Login extends AppCompatActivity {
 
+public class Activity_Splash_Login extends AppCompatActivity {
+    private static final String TAG = "Login";
     EditText mPassword;
     EditText mEmail;
     Button login;
     TextView signUp;
     ProgressBar progressBar;
     FirebaseAuth fAuth;
-    private static final String TAG = "Activity_Splash_Login";
+
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_login);
-        signUp = (TextView) findViewById(R.id.tv_register);
+        signUp = findViewById(R.id.tv_register);
         login = findViewById(R.id.tv_login);
         mEmail = findViewById(R.id.username);
         mPassword = findViewById(R.id.password);
         fAuth = FirebaseAuth.getInstance();
         progressBar = findViewById(R.id.progressBar);
 
-        Log.e(TAG,"signed .....");
         signUp.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                Log.e(TAG,"clickeed");
-                Intent intent = new Intent(Activity_Splash_Login.this, SignUp.class);
-                startActivity(intent);
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), SignUp.class));
             }
         });
-
 
         login.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -87,3 +84,5 @@ public class Activity_Splash_Login extends AppCompatActivity {
         });
     }
 }
+
+

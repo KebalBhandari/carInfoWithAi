@@ -8,4 +8,10 @@
     <color name="lightGrey">#EAEAEA</color>
     <color name="white">#FFFFFF</color>
 
+    <!-- Background color for app -->
+    <color name="tan_background">#FFF7DA</color>
+
+    <color name="category_colors">#E066FF</color>
+
+    <color name="category_numbers">#FD8E09</color>
 </resources>

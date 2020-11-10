@@ -42,7 +42,7 @@ public class Login extends AppCompatActivity {
         fAuth = FirebaseAuth.getInstance();
         progressBar = findViewById(R.id.progressBar);
 
- signUp.setOnClickListener(new View.OnClickListener() {
+        signUp.setOnClickListener(new View.OnClickListener() {
      @Override
      public void onClick(View v) {
          startActivity(new Intent(getApplicationContext(), SignUp.class));
@@ -75,7 +75,8 @@ public class Login extends AppCompatActivity {
                             Toast.makeText(Login.this, "Login Successful.", Toast.LENGTH_SHORT).show();
                             startActivity(new Intent(getApplicationContext(), MainActivity.class));
                         } else {
-                            Toast.makeText(Login.this, "Error" + Objects.requireNonNull(task.getException()).getMessage(), Toast.LENGTH_SHORT).show();
+//                            Toast.makeText(Login.this, "Error" + Objects.requireNonNull(task.getException()).getMessage(), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(Login.this, "Error", Toast.LENGTH_SHORT).show();
                             progressBar.setVisibility(View.GONE);
                         }
                     }
