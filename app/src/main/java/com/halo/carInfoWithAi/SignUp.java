@@ -14,14 +14,22 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.model.Document;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
 
 public class SignUp extends AppCompatActivity  {
 
+    public static final String TAG1 = "TAG";
+    public static final String TAG2 = "TAG";
     EditText mUsername;
     EditText mPassword;
     EditText mEmail;
@@ -29,6 +37,8 @@ public class SignUp extends AppCompatActivity  {
     TextView loginRedirect;
     ProgressBar progressBar;
     FirebaseAuth fAuth;
+    FirebaseFirestore fStore;
+    String userID;
     private static final String TAG = "SignUp";
 
 
@@ -43,6 +53,7 @@ public class SignUp extends AppCompatActivity  {
         mButton = findViewById(R.id.userSignUp);
         loginRedirect = findViewById(R.id.tv_login);
         fAuth=FirebaseAuth.getInstance();
+        fStore=FirebaseFirestore.getInstance();
         progressBar = findViewById(R.id.progressBar);
 //        onBackPressed();
 
@@ -63,15 +74,16 @@ public class SignUp extends AppCompatActivity  {
 
         //validation
         mButton.setOnClickListener(new View.OnClickListener() {
+            String email = mEmail.getText().toString().trim();
+            String password = mPassword.getText().toString().trim();
+            String name = mUsername.getText().toString();
             @Override
             public void onClick(View v) {
-                String email = mEmail.getText().toString().trim();
-                String password = mPassword.getText().toString().trim();
-                if (TextUtils.isEmpty(email)) {
+                if (email.isEmpty()) {
                     mEmail.setError("Email cant be empty");
                     return;
                 }
-                if (TextUtils.isEmpty(password)) {
+                if (password.isEmpty()) {
                     mPassword.setError("Password cant be empty");
                     return;
                 }
@@ -86,6 +98,17 @@ public class SignUp extends AppCompatActivity  {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
                             Toast.makeText(SignUp.this, "User Created.", Toast.LENGTH_SHORT).show();
+                            userID = fAuth.getCurrentUser().getUid();
+                            DocumentReference documentReference = fStore.collection("users").document(userID);
+                            Map<String, Object> user = new HashMap<>();
+                            user.put("UName", name);
+                             user.put("Email", email);
+                            documentReference.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                @Override
+                                public void onSuccess(Void aVoid) {
+                                    Log.d(TAG, "User profile updated"+userID);
+                                }
+                            });
                             startActivity(new Intent(getApplicationContext(),MainActivity.class));
                             progressBar.setVisibility(View.INVISIBLE);
                         }
