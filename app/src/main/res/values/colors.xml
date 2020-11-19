@@ -1,17 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="colorPrimary">#1C260F</color>
+    <color name="button">#49421E</color>
     <color name="colorPrimaryDark">#DE9B0B</color>
     <color name="colorAccent">#FFB20C</color>
     <color name="textHeadline">#434343</color>
     <color name="textDescription">#686868</color>
     <color name="lightGrey">#EAEAEA</color>
     <color name="white">#FFFFFF</color>
-
-    <!-- Background color for app -->
     <color name="tan_background">#FFF7DA</color>
-
     <color name="category_colors">#E066FF</color>
-
     <color name="category_numbers">#FD8E09</color>
 </resources>

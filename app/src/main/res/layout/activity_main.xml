@@ -8,7 +8,6 @@
     tools:context=".MainActivity">
 
     <LinearLayout
-
         android:id="@+id/linlay_inputs"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -23,12 +22,11 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <Button
-
             android:id="@+id/numbers"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
-            android:background="@drawable/button_bg"
+            android:background="@drawable/home_button"
             android:text="@string/category_numbers"
             android:textColor="@color/white" />
 
@@ -43,18 +41,17 @@
 
     </LinearLayout>
 
-<!--    <com.google.android.material.floatingactionbutton.FloatingActionButton-->
-<!--        android:id="@+id/fab"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_alignParentRight="true"-->
-<!--        android:layout_alignParentBottom="true"-->
-<!--        android:layout_margin="@dimen/fab_margin"-->
-<!--        android:src="@drawable/ic_check_background"-->
-<!--        app:layout_constraintBottom_toBottomOf="parent"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintHorizontal_bias="1.0"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/linlay_inputs"-->
-<!--        app:layout_constraintVertical_bias="0.938" />-->
+    <Button
+        android:id="@+id/logout"
+        android:layout_width="77dp"
+        android:layout_height="46dp"
+        android:layout_marginTop="196dp"
+        android:background="#000000"
+        android:text="LogOut"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linlay_inputs"
+        app:layout_constraintVertical_bias="0.911" />
 </androidx.constraintlayout.widget.ConstraintLayout>

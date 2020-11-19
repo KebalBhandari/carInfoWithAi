@@ -43,22 +43,22 @@ public class Login extends AppCompatActivity {
         progressBar = findViewById(R.id.progressBar);
 
         signUp.setOnClickListener(new View.OnClickListener() {
-     @Override
-     public void onClick(View v) {
-         startActivity(new Intent(getApplicationContext(), SignUp.class));
-     }
- });
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), SignUp.class));
+            }
+        });
 
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String email = mEmail.getText().toString().trim();
                 String password = mPassword.getText().toString().trim();
-                if (TextUtils.isEmpty(email)) {
+                if (email.isEmpty()) {
                     mEmail.setError("Email cant be empty");
                     return;
                 }
-                if (TextUtils.isEmpty(password)) {
+                if (password.isEmpty()) {
                     mPassword.setError("Password cant be empty");
                     return;
                 }
@@ -76,8 +76,7 @@ public class Login extends AppCompatActivity {
                             startActivity(new Intent(getApplicationContext(), MainActivity.class));
                             progressBar.setVisibility(View.INVISIBLE);
                         } else {
-//                            Toast.makeText(Login.this, "Error" + Objects.requireNonNull(task.getException()).getMessage(), Toast.LENGTH_SHORT).show();
-                            Toast.makeText(Login.this, "Error", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(Login.this, "Error" + Objects.requireNonNull(task.getException()).getMessage(), Toast.LENGTH_SHORT).show();
                             progressBar.setVisibility(View.GONE);
                         }
                     }

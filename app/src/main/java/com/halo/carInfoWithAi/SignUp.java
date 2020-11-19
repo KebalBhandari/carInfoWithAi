@@ -74,11 +74,11 @@ public class SignUp extends AppCompatActivity  {
 
         //validation
         mButton.setOnClickListener(new View.OnClickListener() {
-            String email = mEmail.getText().toString().trim();
-            String password = mPassword.getText().toString().trim();
-            String name = mUsername.getText().toString();
             @Override
             public void onClick(View v) {
+               final String email = mEmail.getText().toString().trim();
+               final String password = mPassword.getText().toString().trim();
+               final String name = mUsername.getText().toString();
                 if (email.isEmpty()) {
                     mEmail.setError("Email cant be empty");
                     return;
@@ -99,18 +99,18 @@ public class SignUp extends AppCompatActivity  {
                         if(task.isSuccessful()){
                             Toast.makeText(SignUp.this, "User Created.", Toast.LENGTH_SHORT).show();
                             userID = fAuth.getCurrentUser().getUid();
-                            DocumentReference documentReference = fStore.collection("users").document(userID);
+                            DocumentReference documentReference = fStore.collection("user").document(userID);
                             Map<String, Object> user = new HashMap<>();
                             user.put("UName", name);
                              user.put("Email", email);
                             documentReference.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
                                 @Override
                                 public void onSuccess(Void aVoid) {
-                                    Log.d(TAG, "User profile updated"+userID);
+                                    Log.e(TAG,"data stored");
+                                    startActivity(new Intent(getApplicationContext(),MainActivity.class));
+                                    progressBar.setVisibility(View.INVISIBLE);
                                 }
                             });
-                            startActivity(new Intent(getApplicationContext(),MainActivity.class));
-                            progressBar.setVisibility(View.INVISIBLE);
                         }
                         else{
                             Toast.makeText(SignUp.this, "Error"+ Objects.requireNonNull(task.getException()).getMessage(), Toast.LENGTH_SHORT).show();
