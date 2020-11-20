@@ -39,6 +39,14 @@
             android:text="@string/category_family"
             android:textColor="@color/white" />
 
+        <Button
+            android:id="@+id/profileView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/button_bg"
+            android:text="View Profile"
+            android:textColor="@color/white" />
     </LinearLayout>
 
     <Button

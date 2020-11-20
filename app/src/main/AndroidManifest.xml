@@ -12,6 +12,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".EditProfile"></activity>
+        <activity android:name=".profile"></activity>
         <activity android:name=".LP_detect"></activity>
         <activity android:name=".Car_Detail" />
         <activity android:name=".MainActivity" />

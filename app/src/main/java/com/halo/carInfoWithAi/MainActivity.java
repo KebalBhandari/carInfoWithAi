@@ -17,7 +17,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = "Logout";
-    Button logoutButton;
+    Button logoutButton,profileButton;
     FirebaseAuth fAuth;
 
 
@@ -27,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Bundle b = getIntent().getExtras();
         logoutButton = findViewById(R.id.logout);
+        profileButton = findViewById(R.id.profileView);
         fAuth = FirebaseAuth.getInstance();
 
         logoutButton.setOnClickListener(new View.OnClickListener() {
@@ -42,6 +43,13 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(MainActivity.this, "Error !!! Logout Not Success.", Toast.LENGTH_SHORT).show();
                     return;
                 }
+            }
+        });
+        profileButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent profileIntent = new Intent(MainActivity.this, profile.class);
+                startActivity(profileIntent);
             }
         });
 
