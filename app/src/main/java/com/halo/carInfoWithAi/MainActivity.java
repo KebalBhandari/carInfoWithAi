@@ -47,7 +47,6 @@ public class MainActivity extends AppCompatActivity {
 
         TextView numbers = (TextView) findViewById(R.id.numbers);
         numbers.setOnClickListener(new View.OnClickListener() {
-            // The code in this method will be executed when the numbers category is clicked on.
             @Override
             public void onClick(View view) {
                 Intent numbersIntent = new Intent(MainActivity.this, LP_detect.class);
@@ -57,7 +56,6 @@ public class MainActivity extends AppCompatActivity {
 
         TextView family = (TextView) findViewById(R.id.family);
         family.setOnClickListener(new View.OnClickListener() {
-            // The code in this method will be executed when the family category is clicked on.
             @Override
             public void onClick(View view) {
                 Intent familyIntent = new Intent(MainActivity.this, Car_Detail.class);
