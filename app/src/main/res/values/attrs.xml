@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+        <attr name="bottomNavigationStyle" format="reference"/>
+        <declare-styleable name="BottomNavigationView">
+            <attr name="backgroundTint"/>
+            <attr name="menu"/>
+            <attr name="labelVisibilityMode">
+                <enum name="auto" value="-1"/>
+                <enum name="selected" value="0"/>
+                <enum name="labeled" value="1"/>
+                <enum name="unlabeled" value="2"/>
+            </attr>
+            <attr name="itemBackground"/>
+            <attr name="itemRippleColor" format="color"/>
+            <attr name="itemIconSize"/>
+            <attr name="itemIconTint"/>
+            <attr name="itemTextAppearanceInactive" format="reference"/>
+            <attr name="itemTextAppearanceActive" format="reference"/>
+            <attr name="itemTextColor"/>
+            <attr name="itemHorizontalTranslationEnabled" format="boolean"/>
+            <attr name="elevation"/>
+        </declare-styleable>
+</resources>

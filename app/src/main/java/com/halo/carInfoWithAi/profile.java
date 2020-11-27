@@ -56,7 +56,6 @@ public class profile extends AppCompatActivity {
         fAuth = FirebaseAuth.getInstance();
         fStore = FirebaseFirestore.getInstance();
         storageReference = FirebaseStorage.getInstance().getReference();
-
         ImageView eProfile = (ImageView) findViewById(R.id.editProfile);
         eProfile.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -65,7 +64,6 @@ public class profile extends AppCompatActivity {
                 startActivity(editIntent);
             }
         });
-
 
         StorageReference profileRef = storageReference.child("users/"+fAuth.getCurrentUser().getUid()+"/profile.jpg");
         profileRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
@@ -76,7 +74,6 @@ public class profile extends AppCompatActivity {
         });
         userId = fAuth.getCurrentUser().getUid();
         user = fAuth.getCurrentUser();
-
         DocumentReference documentReference = fStore.collection("users").document(userId);
         documentReference.addSnapshotListener(this, new EventListener<DocumentSnapshot>() {
             @Override
@@ -85,7 +82,6 @@ public class profile extends AppCompatActivity {
                     phone.setText(documentSnapshot.getString("phone"));
                     fullName.setText(documentSnapshot.getString("fName"));
                     email.setText(documentSnapshot.getString("email"));
-
                 }else {
                     Log.d("tag", "onEvent: User do not exists");
                 }

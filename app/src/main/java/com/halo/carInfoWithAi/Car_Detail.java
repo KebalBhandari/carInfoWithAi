@@ -29,8 +29,8 @@ public class Car_Detail extends AppCompatActivity {
         words.add(new Word("ten", "na’aacha"));
 
 
+//        WordAdapter adapter = new WordAdapter(this, words);
         WordAdapter adapter = new WordAdapter(this, words);
-
         ListView listView = (ListView) findViewById(R.id.list);
 
         listView.setAdapter(adapter);
