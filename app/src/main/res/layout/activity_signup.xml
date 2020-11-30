@@ -84,6 +84,20 @@
             android:textSize="14sp" />
 
         <EditText
+            android:id="@+id/phone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/edittext_bg"
+            android:drawableStart="@drawable/ic_local_phone_black_24dp"
+            android:drawableLeft="@drawable/ic_local_phone_black_24dp"
+            android:drawablePadding="16dp"
+            android:hint="Phone Number"
+            android:inputType="phone"
+            android:padding="16dp"
+            android:textSize="14sp" />
+
+        <EditText
             android:id="@+id/password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

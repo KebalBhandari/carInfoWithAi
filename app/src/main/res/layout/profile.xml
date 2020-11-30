@@ -41,7 +41,7 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="15sp"
             android:fontFamily="sans-serif-light"
-            android:text="Kebal Bhandari"
+            android:text=""
             android:textColor="@color/white"
             android:textSize="32sp" />
 
@@ -67,18 +67,20 @@
         android:orientation="horizontal">
 
     </LinearLayout>
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/linlay1">
+        android:layout_below="@+id/linlay1"
+        android:layout_marginTop="-2dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:layout_marginLeft="30dp"
-            android:layout_marginRight="30dp"
             android:layout_marginTop="20dp"
+            android:layout_marginRight="30dp"
             android:orientation="vertical">
 
             <LinearLayout
@@ -98,7 +100,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="sans-serif-light"
-                    android:text="kebalbhandari123@gmail.com"
+                    android:text=""
                     android:textColor="#000000"
                     android:textSize="18sp" />
 
@@ -124,11 +126,11 @@
                     android:textSize="13sp" />
 
                 <TextView
-                    android:id="@+id/profileName"
+                    android:id="@+id/profileName1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="sans-serif-light"
-                    android:text="kebal"
+                    android:text=""
                     android:textColor="#000000"
                     android:textSize="18sp" />
 
@@ -142,7 +144,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="63dp"
                 android:layout_marginTop="15dp"
                 android:orientation="vertical">
 
@@ -158,13 +160,13 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="sans-serif-light"
-                    android:text="9817193040"
+                    android:text=""
                     android:textColor="#000000"
                     android:textSize="18sp" />
 
                 <View
                     android:layout_width="match_parent"
-                    android:layout_height="1dp"
+                    android:layout_height="0dp"
                     android:layout_marginTop="15dp"
                     android:background="@color/grey" />
 
@@ -172,6 +174,19 @@
 
 
         </LinearLayout>
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bottom_navigation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_gravity="bottom"
+            android:layout_marginTop="124dp"
+            android:layout_marginBottom="-1dp"
+            android:background="@color/colorPrimary"
+            app:itemIconTint="@android:color/white"
+            app:itemTextColor="@android:color/white"
+            app:menu="@menu/bottom_navigation_menu" />
 
     </RelativeLayout>
 

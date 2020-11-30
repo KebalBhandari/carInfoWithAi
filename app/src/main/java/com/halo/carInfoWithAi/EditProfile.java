@@ -8,6 +8,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -16,6 +17,7 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
@@ -111,6 +113,36 @@ public class EditProfile extends AppCompatActivity {
         profileFullName.setText(fullName);
 
         Log.d(TAG, "onCreate: " + fullName + " " + email);
+
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()){
+                    case R.id.logout:
+                        fAuth.signOut();
+                        if(fAuth.getCurrentUser()==null){
+                            Toast.makeText(EditProfile.this, "Logout Successful.", Toast.LENGTH_SHORT).show();
+                            finish();
+                            startActivity(new Intent(getApplicationContext(), Login.class));
+                        }
+                        else{
+                            Toast.makeText(EditProfile.this, "Error !!! Logout Not Success.", Toast.LENGTH_SHORT).show();
+                            return false;
+                        }
+                        break;
+                    case R.id.profileView:
+                        Intent profileIntent = new Intent(EditProfile.this, profile.class);
+                        startActivity(profileIntent);
+                        break;
+                    case R.id.home:
+                        Intent MainActivity = new Intent(EditProfile.this, MainActivity.class);
+                        startActivity(MainActivity);
+                        break;
+                }
+                return false;
+            }
+        });
     }
 
 

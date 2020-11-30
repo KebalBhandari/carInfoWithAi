@@ -33,6 +33,7 @@ public class SignUp extends AppCompatActivity  {
     EditText mUsername;
     EditText mPassword;
     EditText mEmail;
+    EditText mPhone;
     Button mButton;
     TextView loginRedirect;
     ProgressBar progressBar;
@@ -50,6 +51,7 @@ public class SignUp extends AppCompatActivity  {
         mUsername = findViewById(R.id.username);
         mPassword = findViewById(R.id.password);
         mEmail = findViewById(R.id.email);
+        mPhone=findViewById(R.id.phone);
         mButton = findViewById(R.id.userSignUp);
         loginRedirect = findViewById(R.id.tv_login);
         fAuth=FirebaseAuth.getInstance();
@@ -79,8 +81,17 @@ public class SignUp extends AppCompatActivity  {
                final String email = mEmail.getText().toString().trim();
                final String password = mPassword.getText().toString().trim();
                final String name = mUsername.getText().toString();
+               final String phone = mPhone.getText().toString();
                 if (email.isEmpty()) {
                     mEmail.setError("Email cant be empty");
+                    return;
+                }
+                if (name.isEmpty()) {
+                    mPassword.setError("Name cant be empty");
+                    return;
+                }
+                if (phone.isEmpty()) {
+                    mPassword.setError("Phone cant be empty");
                     return;
                 }
                 if (password.isEmpty()) {
@@ -103,6 +114,7 @@ public class SignUp extends AppCompatActivity  {
                             Map<String, Object> user = new HashMap<>();
                             user.put("UName", name);
                              user.put("Email", email);
+                             user.put("Phone", phone);
                             documentReference.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
                                 @Override
                                 public void onSuccess(Void aVoid) {
