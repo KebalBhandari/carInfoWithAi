@@ -3,7 +3,7 @@
     <item
         android:id="@+id/profileView"
         android:enabled="true"
-        android:icon="@drawable/user_icon"
+        android:icon="@drawable/ic_user1"
         android:title="@string/Profile"/>
     <item
         android:id="@+id/home"

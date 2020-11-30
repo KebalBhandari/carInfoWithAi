@@ -57,6 +57,7 @@ public class profile extends AppCompatActivity {
         profileImage = findViewById(R.id.profileImage);
         fAuth = FirebaseAuth.getInstance();
         fStore = FirebaseFirestore.getInstance();
+        storageReference = FirebaseStorage.getInstance().getReference();
         userId = fAuth.getCurrentUser().getUid();
         DocumentReference documentReference= fStore.collection("user").document(userId);
         documentReference.addSnapshotListener(this,new EventListener<DocumentSnapshot>(){
@@ -67,6 +68,13 @@ public class profile extends AppCompatActivity {
                fullName.setText(documentSnapshot.getString("UName"));
                 UserName.setText(documentSnapshot.getString("UName"));
                email.setText(documentSnapshot.getString("Email"));
+            }
+        });
+        StorageReference profileRef = storageReference.child("users/"+fAuth.getCurrentUser().getUid()+"/profile.jpg");
+        profileRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+            @Override
+            public void onSuccess(Uri uri) {
+                Picasso.get().load(uri).into(profileImage);
             }
         });
 
@@ -108,8 +116,5 @@ public class profile extends AppCompatActivity {
                 return false;
             }
         });
-
-
-
     }
 }
