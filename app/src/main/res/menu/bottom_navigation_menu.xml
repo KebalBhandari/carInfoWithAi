@@ -9,7 +9,7 @@
         android:id="@+id/home"
         android:enabled="true"
         android:icon="@drawable/ic_home"
-        android:title="@string/about"/>
+        android:title="@string/home"/>
     <item
         android:id="@+id/logout"
         android:icon="@drawable/ic_logout"

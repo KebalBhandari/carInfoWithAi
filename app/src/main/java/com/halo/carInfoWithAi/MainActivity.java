@@ -53,35 +53,11 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
-//        logoutButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                fAuth.signOut();
-//                if(fAuth.getCurrentUser()==null){
-//                    Toast.makeText(MainActivity.this, "Logout Successful.", Toast.LENGTH_SHORT).show();
-//                    finish();
-//                    startActivity(new Intent(getApplicationContext(), Login.class));
-//                }
-//                else{
-//                    Toast.makeText(MainActivity.this, "Error !!! Logout Not Success.", Toast.LENGTH_SHORT).show();
-//                    return;
-//                }
-//            }
-//        });
-//        profileButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent profileIntent = new Intent(MainActivity.this, profile.class);
-//                startActivity(profileIntent);
-//            }
-//        });
-
         TextView numbers = (TextView) findViewById(R.id.numbers);
         numbers.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent numbersIntent = new Intent(MainActivity.this, LP_detect.class);
+                Intent numbersIntent = new Intent(MainActivity.this, captureImage.class);
                 startActivity(numbersIntent);
             }
         });

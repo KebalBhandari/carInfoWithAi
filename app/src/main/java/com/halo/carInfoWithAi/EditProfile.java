@@ -14,6 +14,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
@@ -39,6 +40,7 @@ public class EditProfile extends AppCompatActivity {
     ImageView profileImageView;
     Button saveBtn;
     String userId;
+    ProgressBar progressBar;
     FirebaseAuth fAuth;
     FirebaseFirestore fStore;
     FirebaseUser user;
@@ -57,6 +59,7 @@ public class EditProfile extends AppCompatActivity {
         profileImageView = findViewById(R.id.profileImageView);
         profilePhone = findViewById(R.id.profilePhoneNo);
         saveBtn = findViewById(R.id.saveProfileInfo);
+        progressBar = findViewById(R.id.progressBar);
 
         userId = fAuth.getCurrentUser().getUid();
         DocumentReference documentReference= fStore.collection("user").document(userId);
@@ -93,7 +96,7 @@ public class EditProfile extends AppCompatActivity {
                     Toast.makeText(EditProfile.this, "One or more fields are empty.", Toast.LENGTH_SHORT).show();
                     return;
                 }
-
+                progressBar.setVisibility(View.VISIBLE);
                 final String email = profileEmail.getText().toString();
                 user.updateEmail(email).addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
@@ -108,15 +111,18 @@ public class EditProfile extends AppCompatActivity {
                             public void onSuccess(Void aVoid) {
                                 Toast.makeText(EditProfile.this, "Profile Updated", Toast.LENGTH_SHORT).show();
                                 startActivity(new Intent(getApplicationContext(),MainActivity.class));
+                                progressBar.setVisibility(View.INVISIBLE);
                                 finish();
                             }
                         });
+                        progressBar.setVisibility(View.INVISIBLE);
                         Toast.makeText(EditProfile.this, "Email is changed.", Toast.LENGTH_SHORT).show();
                     }
                 }).addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
                         Toast.makeText(EditProfile.this,   e.getMessage(), Toast.LENGTH_SHORT).show();
+                        progressBar.setVisibility(View.INVISIBLE);
                     }
                 });
             }

@@ -40,6 +40,7 @@
             android:background="@drawable/button_bg"
             android:text="@string/category_family"
             android:textColor="@color/white" />
+
     </LinearLayout>
 
         <FrameLayout
