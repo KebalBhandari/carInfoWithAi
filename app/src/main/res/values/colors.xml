@@ -4,6 +4,16 @@
     <color name="button">#49421E</color>
     <color name="colorPrimaryDark">#DE9B0B</color>
     <color name="colorAccent">#FFB20C</color>
+
+    <color name="colorPrimary1">#2BCC6F</color>
+    <color name="colorPrimaryDark1">#2BCC6F</color>
+    <color name="colorAccent1">#333333</color>
+    <color name="colorBackground">#EBEBEB</color>
+    <color name="colorPrimaryLight">#E9F8F1</color>
+    <color name="colorTrendingStart">#00B09B</color>
+    <color name="colorTrendingEnd">#96C93D</color>
+    <color name="colorDivider">#D6D6D6</color>
+
     <color name="textHeadline">#434343</color>
     <color name="textDescription">#686868</color>
     <color name="lightGrey">#EAEAEA</color>

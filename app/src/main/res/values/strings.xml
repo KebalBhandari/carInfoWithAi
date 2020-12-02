@@ -12,4 +12,5 @@
     <string name="home">Home</string>
     <string name="exit">LogOut</string>
     <string name="Profile">Profile</string>
+    <string name="hello">Hello There</string>
 </resources>
