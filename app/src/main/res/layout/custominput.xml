@@ -57,7 +57,7 @@
                     android:layout_weight="3">
 
                     <EditText
-                        android:id="@+id/title_update"
+                        android:id="@+id/NoPlate"
                         android:layout_width="287dp"
                         android:layout_height="41dp"
                         android:layout_marginStart="10dp"
@@ -100,7 +100,7 @@
                     android:layout_weight="3">
 
                     <EditText
-                        android:id="@+id/title"
+                        android:id="@+id/CName"
                         android:background="@drawable/edittext_bg"
                         android:layout_width="287dp"
                         android:layout_height="41dp"
@@ -141,7 +141,7 @@
                     android:layout_weight="1">
 
                     <EditText
-                        android:id="@+id/title"
+                        android:id="@+id/modelNumber"
                         android:background="@drawable/edittext_bg"
                         android:layout_width="276dp"
                         android:layout_height="41dp"
@@ -182,7 +182,7 @@
                     android:layout_weight="3">
 
                     <EditText
-                        android:id="@+id/title_update"
+                        android:id="@+id/ccInfo"
                         android:layout_width="287dp"
                         android:layout_height="41dp"
                         android:layout_marginStart="10dp"
@@ -224,7 +224,7 @@
                     android:layout_weight="3">
 
                     <EditText
-                        android:id="@+id/title"
+                        android:id="@+id/colorInfo"
                         android:background="@drawable/edittext_bg"
                         android:layout_width="287dp"
                         android:layout_height="41dp"
@@ -269,7 +269,7 @@
                     android:layout_weight="3">
 
                     <EditText
-                        android:id="@+id/title"
+                        android:id="@+id/ManufactureDatey"
                         android:background="@drawable/edittext_bg"
                         android:layout_width="276dp"
                         android:layout_height="41dp"
@@ -311,7 +311,7 @@
                     android:layout_weight="3">
 
                     <EditText
-                        android:id="@+id/title"
+                        android:id="@+id/ownerName"
                         android:background="@drawable/edittext_bg"
                         android:layout_width="287dp"
                         android:layout_height="41dp"
@@ -353,7 +353,7 @@
                     android:layout_weight="3">
 
                     <EditText
-                        android:id="@+id/title"
+                        android:id="@+id/ownerContactInfo"
                         android:background="@drawable/edittext_bg"
                         android:layout_width="287dp"
                         android:layout_height="41dp"
@@ -395,7 +395,7 @@
                     android:layout_weight="3">
 
                     <EditText
-                        android:id="@+id/title"
+                        android:id="@+id/ownerPhoneNo"
                         android:background="@drawable/edittext_bg"
                         android:layout_width="287dp"
                         android:layout_height="41dp"
@@ -437,7 +437,7 @@
                     android:layout_weight="3">
 
                     <EditText
-                        android:id="@+id/note_update"
+                        android:id="@+id/ownerOccupation"
                         android:layout_width="287dp"
                         android:layout_height="41dp"
                         android:layout_marginStart="10dp"
@@ -473,6 +473,24 @@
                         android:layout_margin="10dp"
                         android:text="@string/save"
                         android:background="@color/colorPrimary"
+                        android:textColor="#ffffff"
+
+                        android:textAppearance="?android:textAppearanceMedium" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3">
+
+                    <Button
+                        android:id="@+id/btnBack"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:text="@string/back"
+                        android:background="@color/colorAccent1"
                         android:textColor="#ffffff"
 
                         android:textAppearance="?android:textAppearanceMedium" />

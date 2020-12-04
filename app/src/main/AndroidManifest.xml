@@ -15,6 +15,7 @@
         android:theme="@style/AppTheme">
         <activity android:name=".EditProfile"/>
         <activity android:name=".profile"/>
+        <activity android:name=".Word"/>
         <activity android:name=".LP_detect"/>
         <activity android:name=".Car_Detail" />
         <activity android:name=".MainActivity" />

@@ -458,7 +458,7 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_marginTop=""
+                android:layout_marginTop="0dp"
                 android:orientation="horizontal">
 
                 <RelativeLayout
@@ -485,12 +485,29 @@
                     android:layout_weight="3">
 
                     <Button
+                        android:id="@+id/btn_delete_from_update"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:text="@string/delete"
+                        android:background="@color/red"
+                        android:textColor="#ffffff"
+                        android:textAppearance="?android:textAppearanceMedium" />
+
+
+                </RelativeLayout>
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3">
+
+                    <Button
                         android:id="@+id/btn_update"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="10dp"
-                        android:text="@string/update"
-                        android:background="@color/colorPrimary"
+                        android:text="@string/back"
+                        android:background="@color/colorAccent1"
                         android:textColor="#ffffff"
                         android:textAppearance="?android:textAppearanceMedium" />
 

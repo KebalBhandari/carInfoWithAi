@@ -4,14 +4,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".HomeActivity">
-    <include layout="@layout/custom_toolbar"/>
+    xmlns:tools="http://schemas.android.com/tools">
+
+
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
+        android:layout_marginTop="50dp"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:layout_below="@+id/custom_toolbar"
         android:id="@+id/recycleView">
     </androidx.recyclerview.widget.RecyclerView>
 
@@ -27,9 +27,11 @@
         android:layout_marginEnd="30dp"
         android:layout_marginRight="30dp"
         android:layout_marginBottom="27dp"
-        android:background="#FFE91E63"
-        android:src="@drawable/create_24dp"
+        android:background="#000"
+        android:src="@drawable/ic_add"
         app:fabSize="normal"
         app:layout_anchorGravity="bottom|right|end" />
+
+
 
 </RelativeLayout>

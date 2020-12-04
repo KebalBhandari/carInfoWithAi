@@ -38,4 +38,6 @@
     <string name="color">Color:</string>
     <string name="delete">Delete</string>
     <string name="update">Update</string>
+    <string name="back">Back</string>
+    <string name="capture_image">Capture Image</string>
 </resources>
