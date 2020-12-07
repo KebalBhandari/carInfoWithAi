@@ -1,24 +1,26 @@
 package com.halo.carInfoWithAi;
 
-import androidx.appcompat.app.AppCompatActivity;
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.FirebaseFirestore;
+import android.widget.Toast;
 
-import java.util.HashMap;
-import java.util.Map;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.halo.carInfoWithAi.Models.*;
 
 public class Word extends AppCompatActivity  {
 
     public static final String TAG1 = "TAG";
     public static final String TAG2 = "TAG";
+    DatabaseReference mDatabase;
     EditText nNumberInfo;
     EditText mCompanyName;
     EditText mModelNo;
@@ -31,7 +33,7 @@ public class Word extends AppCompatActivity  {
     EditText mOwnerOccupation;
     Button mSaveButton;
     Button mBtnBack;
-
+    RecyclerView recyclerView;
     FirebaseAuth fAuth;
     FirebaseFirestore fStore;
     String userID;
@@ -47,7 +49,7 @@ public class Word extends AppCompatActivity  {
         mCompanyName = findViewById(R.id.CName);
         mModelNo = findViewById(R.id.modelNumber);
         mCcData=findViewById(R.id.ccInfo);
-        mManufactureDate = findViewById(R.id.ManufactureDatey);
+        mManufactureDate = findViewById(R.id.ManufactureDate);
         mOwnerName = findViewById(R.id.ownerName);
         mOwnerAddress = findViewById(R.id.ownerContactInfo);
         mOwnerContact=findViewById(R.id.ownerPhoneNo);
@@ -57,7 +59,10 @@ public class Word extends AppCompatActivity  {
         mBtnBack = findViewById(R.id.btnBack);
         fAuth=FirebaseAuth.getInstance();
         fStore=FirebaseFirestore.getInstance();
-
+        userID = fAuth.getCurrentUser().getUid();
+        recyclerView = findViewById(R.id.recycleView);
+        mDatabase = FirebaseDatabase.getInstance().getReference().child("CarInfoData").child(userID);
+        mDatabase.keepSynced(true);
         mBtnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -66,20 +71,63 @@ public class Word extends AppCompatActivity  {
             }
         });
 
+//        mSaveButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                final String numberPlate = nNumberInfo.getText().toString().trim();
+//                final String companyName = mCompanyName.getText().toString().trim();
+//                final String modelNo = mModelNo.getText().toString();
+//                final String ccData = mCcData.getText().toString();
+//
+//                final String manufactureDate = mManufactureDate.getText().toString().trim();
+//                final String ownerName = mOwnerName.getText().toString().trim();
+//                final String ownerAddress = mOwnerAddress.getText().toString();
+//                final String ownerContact = mOwnerContact.getText().toString();
+//                final String ownerOccupation = mOwnerOccupation.getText().toString();
+//                final String carColor = mColor.getText().toString();
+//                if (numberPlate.isEmpty()) {
+//                    nNumberInfo.setError("Number Plate Data is required");
+//                    return;
+//                }
+//                if (companyName.isEmpty()) {
+//                    mCompanyName.setError("Company Name cant be empty");
+//                    return;
+//                }
+//                if (modelNo.isEmpty()) {
+//                    mModelNo.setError("Model No cant be empty");
+//                    return;
+//                }
+//                if (ownerName.isEmpty()) {
+//                    mOwnerName.setError("Owner Name cant be empty");
+//                    return;
+//                }
+//                if (ownerContact.length() < 6) {
+//                    mOwnerContact.setError("Owner Contact must be >= 6 Characters");
+//                    return;
+//                }
+//                String id = mdatabase.push().getKey();
+//                String today_date = DateFormat.getDateInstance().format(new Date());
+//                Data data = new Data(mtitle, mnote, today_date, id);
+//                mdatabase.child(id).setValue(data);
+//                Toast.makeText(HomeActivity.this, "Data inserted", Toast.LENGTH_SHORT).show();
+//                dialog.dismiss();
+//            }
+//        });
+
         mSaveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                final String numberPlate = nNumberInfo.getText().toString().trim();
-                final String companyName = mCompanyName.getText().toString().trim();
-                final String modelNo = mModelNo.getText().toString();
-                final String ccData = mCcData.getText().toString();
+                 String numberPlate = nNumberInfo.getText().toString().trim();
+                 String companyName = mCompanyName.getText().toString().trim();
+                 String modelNo = mModelNo.getText().toString();
+                 String ccData = mCcData.getText().toString();
 
-                final String manufactureDate = mManufactureDate.getText().toString().trim();
-                final String ownerName = mOwnerName.getText().toString().trim();
-                final String ownerAddress = mOwnerAddress.getText().toString();
-                final String ownerContact = mOwnerContact.getText().toString();
-                final String ownerOccupation = mOwnerOccupation.getText().toString();
-                final String carColor = mColor.getText().toString();
+                 String manufactureDate = mManufactureDate.getText().toString().trim();
+                 String ownerName = mOwnerName.getText().toString().trim();
+                 String ownerAddress = mOwnerAddress.getText().toString();
+                 String ownerContact = mOwnerContact.getText().toString();
+                 String ownerOccupation = mOwnerOccupation.getText().toString();
+                 String carColor = mColor.getText().toString();
 
 
                 if (numberPlate.isEmpty()) {
@@ -103,27 +151,10 @@ public class Word extends AppCompatActivity  {
                     return;
                 }
 
-                userID = fAuth.getCurrentUser().getUid();
-                DocumentReference documentReference = fStore.collection("CarInfo").document(userID);
-                Map<String, Object> CarInfo = new HashMap<>();
-                CarInfo.put("CNumber", numberPlate);
-                CarInfo.put("CName", companyName);
-                CarInfo.put("CModelNumber", modelNo);
-                CarInfo.put("CCC", ccData);
-                CarInfo.put("CColor", carColor);
-                CarInfo.put("CMDate", manufactureDate);
-                CarInfo.put("COwner", ownerName);
-                CarInfo.put("CAddress", ownerAddress);
-                CarInfo.put("CContact", ownerContact);
-                CarInfo.put("COccupation", ownerOccupation);
-
-                documentReference.set(CarInfo).addOnSuccessListener(new OnSuccessListener<Void>() {
-                    @Override
-                    public void onSuccess(Void aVoid) {
-                        Log.e(TAG,"Car Info stored");
-                        startActivity(new Intent(getApplicationContext(),MainActivity.class));
-                    }
-                });
+                String id = mDatabase.push().getKey();
+                Data data = new Data(numberPlate, companyName, modelNo,ccData,manufactureDate,ownerName,ownerAddress,ownerOccupation,ownerContact,carColor,id);
+                mDatabase.child(id).setValue(data);
+                Toast.makeText(Word.this, "Data inserted", Toast.LENGTH_SHORT).show();
             }
         });
     }

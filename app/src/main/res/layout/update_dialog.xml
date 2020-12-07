@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical">
+    android:layout_height="wrap_content">
 
     <ScrollView
         android:layout_width="match_parent"
-        android:background="@color/colorTrendingEnd"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="@color/colorTrendingEnd">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -16,18 +15,17 @@
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                >
+                android:layout_height="wrap_content">
 
                 <TextView
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="80dp"
+                    android:background="@color/colorPrimaryDark1"
+                    android:gravity="center"
                     android:padding="15dp"
                     android:text="@string/update_car_information"
-                    android:background="@color/colorPrimaryDark1"
-                    android:textColor="#ffffff"
-                    android:gravity="center"
-                    android:textAppearance="?android:textAppearanceMedium" />
+                    android:textAppearance="?android:textAppearanceMedium"
+                    android:textColor="#ffffff" />
 
             </RelativeLayout>
 
@@ -46,29 +44,30 @@
                         android:layout_height="wrap_content"
                         android:layout_margin="10dp"
                         android:text="@string/number"
-                        android:textColor="#000000"
-                        android:textAppearance="?android:textAppearanceMedium" />
+                        android:textAppearance="?android:textAppearanceMedium"
+                        android:textColor="#000000" />
 
 
                 </RelativeLayout>
+
                 <RelativeLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="3">
 
                     <EditText
-                        android:id="@+id/title_update"
+                        android:id="@+id/NoPlate1"
                         android:layout_width="287dp"
                         android:layout_height="41dp"
                         android:layout_marginStart="10dp"
                         android:layout_marginTop="10dp"
                         android:layout_marginEnd="10dp"
-                        android:padding="10dp"
                         android:layout_marginBottom="10dp"
                         android:background="@drawable/edittext_bg"
                         android:hint="@string/number_plate_info"
-                        android:textColor="#000000"
-                        android:textAppearance="?android:textAppearanceMedium" />
+                        android:padding="10dp"
+                        android:textAppearance="?android:textAppearanceMedium"
+                        android:textColor="#000000" />
 
 
                 </RelativeLayout>
@@ -89,32 +88,34 @@
                         android:layout_height="wrap_content"
                         android:layout_margin="10dp"
                         android:text="@string/name"
-                        android:textColor="#000000"
-                        android:textAppearance="?android:textAppearanceMedium" />
+                        android:textAppearance="?android:textAppearanceMedium"
+                        android:textColor="#000000" />
 
 
                 </RelativeLayout>
+
                 <RelativeLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="3">
 
                     <EditText
-                        android:id="@+id/title"
-                        android:background="@drawable/edittext_bg"
+                        android:id="@+id/CName1"
                         android:layout_width="287dp"
                         android:layout_height="41dp"
+                        android:layout_margin="10dp"
                         android:layout_marginStart="10dp"
                         android:layout_marginTop="10dp"
                         android:layout_marginEnd="10dp"
-                        android:padding="10dp"
                         android:layout_marginBottom="10dp"
-                        android:layout_margin="10dp"
+                        android:background="@drawable/edittext_bg"
                         android:hint="@string/company_name"
-                        android:textColor="#000000"
-                        android:textAppearance="?android:textAppearanceMedium" />
+                        android:padding="10dp"
+                        android:textAppearance="?android:textAppearanceMedium"
+                        android:textColor="#000000" />
                 </RelativeLayout>
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
@@ -130,32 +131,35 @@
                         android:layout_height="wrap_content"
                         android:layout_margin="10dp"
                         android:text="@string/model_number"
-                        android:textColor="#000000"
-                        android:textAppearance="?android:textAppearanceMedium" />
+                        android:textAppearance="?android:textAppearanceMedium"
+                        android:textColor="#000000" />
 
 
                 </RelativeLayout>
+
                 <RelativeLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1">
 
                     <EditText
-                        android:id="@+id/title"
-                        android:background="@drawable/edittext_bg"
+                        android:id="@+id/modelNumber1"
                         android:layout_width="276dp"
                         android:layout_height="41dp"
+                        android:inputType="number"
+                        android:layout_margin="10dp"
                         android:layout_marginStart="10dp"
                         android:layout_marginTop="10dp"
                         android:layout_marginEnd="10dp"
-                        android:padding="10dp"
                         android:layout_marginBottom="10dp"
-                        android:layout_margin="10dp"
+                        android:background="@drawable/edittext_bg"
                         android:hint="@string/model_number_of_car"
-                        android:textColor="#000000"
-                        android:textAppearance="?android:textAppearanceMedium" />
+                        android:padding="10dp"
+                        android:textAppearance="?android:textAppearanceMedium"
+                        android:textColor="#000000" />
                 </RelativeLayout>
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
@@ -171,29 +175,31 @@
                         android:layout_height="wrap_content"
                         android:layout_margin="10dp"
                         android:text="@string/cc"
-                        android:textColor="#000000"
-                        android:textAppearance="?android:textAppearanceMedium" />
+                        android:textAppearance="?android:textAppearanceMedium"
+                        android:textColor="#000000" />
 
 
                 </RelativeLayout>
+
                 <RelativeLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="3">
 
                     <EditText
-                        android:id="@+id/title_update"
+                        android:id="@+id/ccInfo1"
                         android:layout_width="287dp"
                         android:layout_height="41dp"
+                        android:inputType="number"
                         android:layout_marginStart="10dp"
                         android:layout_marginTop="10dp"
                         android:layout_marginEnd="10dp"
-                        android:padding="10dp"
                         android:layout_marginBottom="10dp"
                         android:background="@drawable/edittext_bg"
                         android:hint="@string/cc_data"
-                        android:textColor="#000000"
-                        android:textAppearance="?android:textAppearanceMedium" />
+                        android:padding="10dp"
+                        android:textAppearance="?android:textAppearanceMedium"
+                        android:textColor="#000000" />
 
                 </RelativeLayout>
             </LinearLayout>
@@ -213,30 +219,31 @@
                         android:layout_height="wrap_content"
                         android:layout_margin="10dp"
                         android:text="@string/color"
-                        android:textColor="#000000"
-                        android:textAppearance="?android:textAppearanceMedium" />
+                        android:textAppearance="?android:textAppearanceMedium"
+                        android:textColor="#000000" />
 
 
                 </RelativeLayout>
+
                 <RelativeLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="3">
 
                     <EditText
-                        android:id="@+id/title"
-                        android:background="@drawable/edittext_bg"
+                        android:id="@+id/colorInfo1"
                         android:layout_width="287dp"
                         android:layout_height="41dp"
+                        android:layout_margin="10dp"
                         android:layout_marginStart="10dp"
                         android:layout_marginTop="10dp"
                         android:layout_marginEnd="10dp"
-                        android:padding="10dp"
                         android:layout_marginBottom="10dp"
-                        android:layout_margin="10dp"
+                        android:background="@drawable/edittext_bg"
                         android:hint="@string/color_of_car"
-                        android:textColor="#000000"
-                        android:textAppearance="?android:textAppearanceMedium" />
+                        android:padding="10dp"
+                        android:textAppearance="?android:textAppearanceMedium"
+                        android:textColor="#000000" />
                 </RelativeLayout>
             </LinearLayout>
 
@@ -263,25 +270,27 @@
 
 
                 </RelativeLayout>
+
                 <RelativeLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="3">
 
                     <EditText
-                        android:id="@+id/title"
-                        android:background="@drawable/edittext_bg"
+                        android:id="@+id/ManufactureDate1"
                         android:layout_width="276dp"
                         android:layout_height="41dp"
+                        android:inputType="date"
+                        android:layout_margin="10dp"
                         android:layout_marginStart="10dp"
                         android:layout_marginTop="10dp"
                         android:layout_marginEnd="10dp"
-                        android:padding="10dp"
                         android:layout_marginBottom="10dp"
-                        android:layout_margin="10dp"
+                        android:background="@drawable/edittext_bg"
                         android:hint="@string/date_of_manufacture"
-                        android:textColor="#000000"
-                        android:textAppearance="?android:textAppearanceMedium" />
+                        android:padding="10dp"
+                        android:textAppearance="?android:textAppearanceMedium"
+                        android:textColor="#000000" />
                 </RelativeLayout>
             </LinearLayout>
 
@@ -300,30 +309,31 @@
                         android:layout_height="wrap_content"
                         android:layout_margin="10dp"
                         android:text="@string/owner"
-                        android:textColor="#000000"
-                        android:textAppearance="?android:textAppearanceMedium" />
+                        android:textAppearance="?android:textAppearanceMedium"
+                        android:textColor="#000000" />
 
 
                 </RelativeLayout>
+
                 <RelativeLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="3">
 
                     <EditText
-                        android:id="@+id/title"
-                        android:background="@drawable/edittext_bg"
+                        android:id="@+id/ownerName1"
                         android:layout_width="287dp"
                         android:layout_height="41dp"
+                        android:layout_margin="10dp"
                         android:layout_marginStart="10dp"
                         android:layout_marginTop="10dp"
                         android:layout_marginEnd="10dp"
-                        android:padding="10dp"
                         android:layout_marginBottom="10dp"
-                        android:layout_margin="10dp"
+                        android:background="@drawable/edittext_bg"
                         android:hint="@string/owner_name"
-                        android:textColor="#000000"
-                        android:textAppearance="?android:textAppearanceMedium" />
+                        android:padding="10dp"
+                        android:textAppearance="?android:textAppearanceMedium"
+                        android:textColor="#000000" />
                 </RelativeLayout>
             </LinearLayout>
 
@@ -342,30 +352,31 @@
                         android:layout_height="wrap_content"
                         android:layout_margin="10dp"
                         android:text="@string/address"
-                        android:textColor="#000000"
-                        android:textAppearance="?android:textAppearanceMedium" />
+                        android:textAppearance="?android:textAppearanceMedium"
+                        android:textColor="#000000" />
 
 
                 </RelativeLayout>
+
                 <RelativeLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="3">
 
                     <EditText
-                        android:id="@+id/title"
-                        android:background="@drawable/edittext_bg"
+                        android:id="@+id/ownerContactInfo1"
                         android:layout_width="287dp"
                         android:layout_height="41dp"
+                        android:layout_margin="10dp"
                         android:layout_marginStart="10dp"
                         android:layout_marginTop="10dp"
                         android:layout_marginEnd="10dp"
-                        android:padding="10dp"
                         android:layout_marginBottom="10dp"
-                        android:layout_margin="10dp"
+                        android:background="@drawable/edittext_bg"
                         android:hint="@string/owner_contact_information"
-                        android:textColor="#000000"
-                        android:textAppearance="?android:textAppearanceMedium" />
+                        android:padding="10dp"
+                        android:textAppearance="?android:textAppearanceMedium"
+                        android:textColor="#000000" />
                 </RelativeLayout>
             </LinearLayout>
 
@@ -384,30 +395,32 @@
                         android:layout_height="wrap_content"
                         android:layout_margin="10dp"
                         android:text="@string/contact"
-                        android:textColor="#000000"
-                        android:textAppearance="?android:textAppearanceMedium" />
+                        android:textAppearance="?android:textAppearanceMedium"
+                        android:textColor="#000000" />
 
 
                 </RelativeLayout>
+
                 <RelativeLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="3">
 
                     <EditText
-                        android:id="@+id/title"
-                        android:background="@drawable/edittext_bg"
+                        android:id="@+id/ownerPhoneNo1"
                         android:layout_width="287dp"
                         android:layout_height="41dp"
+                        android:layout_margin="10dp"
+                        android:inputType="phone"
                         android:layout_marginStart="10dp"
                         android:layout_marginTop="10dp"
                         android:layout_marginEnd="10dp"
-                        android:padding="10dp"
                         android:layout_marginBottom="10dp"
-                        android:layout_margin="10dp"
+                        android:background="@drawable/edittext_bg"
                         android:hint="@string/owner_contact_number"
-                        android:textColor="#000000"
-                        android:textAppearance="?android:textAppearanceMedium" />
+                        android:padding="10dp"
+                        android:textAppearance="?android:textAppearanceMedium"
+                        android:textColor="#000000" />
                 </RelativeLayout>
             </LinearLayout>
 
@@ -426,29 +439,30 @@
                         android:layout_height="wrap_content"
                         android:layout_margin="10dp"
                         android:text="@string/occupation"
-                        android:textColor="#000000"
-                        android:textAppearance="?android:textAppearanceMedium" />
+                        android:textAppearance="?android:textAppearanceMedium"
+                        android:textColor="#000000" />
 
 
                 </RelativeLayout>
+
                 <RelativeLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="3">
 
                     <EditText
-                        android:id="@+id/note_update"
+                        android:id="@+id/ownerOccupation"
                         android:layout_width="287dp"
                         android:layout_height="41dp"
                         android:layout_marginStart="10dp"
                         android:layout_marginTop="10dp"
                         android:layout_marginEnd="10dp"
-                        android:padding="10dp"
                         android:layout_marginBottom="10dp"
                         android:background="@drawable/edittext_bg"
                         android:hint="@string/owner_occupation"
-                        android:textColor="#000000"
-                        android:textAppearance="?android:textAppearanceMedium" />
+                        android:padding="10dp"
+                        android:textAppearance="?android:textAppearanceMedium"
+                        android:textColor="#000000" />
 
 
                 </RelativeLayout>
@@ -471,14 +485,15 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="10dp"
-                        android:text="@string/delete"
                         android:background="@color/colorPrimary"
-                        android:textColor="#ffffff"
+                        android:text="@string/update"
+                        android:textAppearance="?android:textAppearanceMedium"
 
-                        android:textAppearance="?android:textAppearanceMedium" />
+                        android:textColor="#ffffff" />
 
 
                 </RelativeLayout>
+
                 <RelativeLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -489,13 +504,14 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="10dp"
-                        android:text="@string/delete"
                         android:background="@color/red"
-                        android:textColor="#ffffff"
-                        android:textAppearance="?android:textAppearanceMedium" />
+                        android:text="@string/delete"
+                        android:textAppearance="?android:textAppearanceMedium"
+                        android:textColor="#ffffff" />
 
 
                 </RelativeLayout>
+
                 <RelativeLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -506,10 +522,10 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="10dp"
-                        android:text="@string/back"
                         android:background="@color/colorAccent1"
-                        android:textColor="#ffffff"
-                        android:textAppearance="?android:textAppearanceMedium" />
+                        android:text="@string/back"
+                        android:textAppearance="?android:textAppearanceMedium"
+                        android:textColor="#ffffff" />
 
                 </RelativeLayout>
             </LinearLayout>

@@ -40,4 +40,6 @@
     <string name="update">Update</string>
     <string name="back">Back</string>
     <string name="capture_image">Capture Image</string>
+    <string name="hi_there_welcome">Hi There, Welcome</string>
+    <string name="add_data">Add data</string>
 </resources>

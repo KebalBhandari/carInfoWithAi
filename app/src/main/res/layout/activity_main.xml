@@ -18,7 +18,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:navigationIcon="@drawable/ic_menu" />
+         />
 
     <TextView
         android:id="@+id/textView"
@@ -37,7 +37,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginLeft="16dp"
-            android:text="Hi There"
+            android:text="@string/hi_there_welcome"
             app:layout_constraintEnd_toStartOf="@+id/imageView"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView" />
@@ -89,6 +89,7 @@
             </androidx.cardview.widget.CardView>
             <androidx.cardview.widget.CardView
                 android:layout_width="0dp"
+                android:id="@+id/profileCard"
                 android:layout_height="match_parent"
                 android:layout_margin="10dp"
                 android:layout_weight="1">
@@ -99,13 +100,13 @@
                         android:id="@+id/textView4"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_below="@id/imageView3"
+                        android:layout_below="@id/profileData"
                         android:layout_centerHorizontal="true"
                         android:layout_marginTop="10dp"
                         android:text="@string/Profile"
                         android:textSize="20sp" />
                     <ImageView
-                        android:id="@+id/imageView3"
+                        android:id="@+id/profileData"
                         android:layout_width="75dp"
                         android:layout_height="75dp"
                         android:layout_centerHorizontal="true"
@@ -126,6 +127,7 @@
             app:layout_constraintTop_toBottomOf="@+id/linearLayout">
             <androidx.cardview.widget.CardView
                 android:layout_width="0dp"
+                android:id="@+id/editUpdateData"
                 android:layout_height="match_parent"
                 android:layout_margin="10dp"
                 android:layout_weight="1">
@@ -174,7 +176,8 @@
                         android:layout_height="75dp"
                         android:layout_centerHorizontal="true"
                         android:layout_marginTop="15dp"
-                        app:srcCompat="@drawable/info" />
+                        app:tint="#000000"
+                        app:srcCompat="@drawable/ic_about_us" />
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
         </LinearLayout>

@@ -2,6 +2,7 @@ package com.halo.carInfoWithAi;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -54,23 +55,23 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        ImageView EditData = (ImageView) findViewById(R.id.editData);
+        CardView EditData = (CardView) findViewById(R.id.editUpdateData);
         EditData.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent numbersIntent = new Intent(MainActivity.this, Word.class);
-                startActivity(numbersIntent);
+                Intent editDataIntent = new Intent(MainActivity.this, Word.class);
+                startActivity(editDataIntent);
             }
         });
 
-//        TextView family = (TextView) findViewById(R.id.family);
-//        family.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent familyIntent = new Intent(MainActivity.this, Car_Detail.class);
-//                startActivity(familyIntent);
-//            }
-//        });
+        CardView profileDataInfo = (CardView) findViewById(R.id.profileCard);
+        profileDataInfo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent ProfileIntent = new Intent(MainActivity.this, profile.class);
+                startActivity(ProfileIntent);
+            }
+        });
     }
 }
 
