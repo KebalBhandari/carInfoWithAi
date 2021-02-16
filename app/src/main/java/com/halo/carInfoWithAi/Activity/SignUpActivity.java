@@ -1,10 +1,9 @@
-package com.halo.carInfoWithAi;
+package com.halo.carInfoWithAi.Activity;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -20,13 +19,13 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.model.Document;
+import com.halo.carInfoWithAi.R;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-public class SignUp extends AppCompatActivity  {
+public class SignUpActivity extends AppCompatActivity  {
 
     public static final String TAG1 = "TAG";
     public static final String TAG2 = "TAG";
@@ -108,7 +107,7 @@ public class SignUp extends AppCompatActivity  {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
-                            Toast.makeText(SignUp.this, "User Created.", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(SignUpActivity.this, "User Created.", Toast.LENGTH_SHORT).show();
                             userID = fAuth.getCurrentUser().getUid();
                             DocumentReference documentReference = fStore.collection("user").document(userID);
                             Map<String, Object> user = new HashMap<>();
@@ -119,13 +118,13 @@ public class SignUp extends AppCompatActivity  {
                                 @Override
                                 public void onSuccess(Void aVoid) {
                                     Log.e(TAG,"data stored");
-                                    startActivity(new Intent(getApplicationContext(),MainActivity.class));
+                                    startActivity(new Intent(getApplicationContext(), MainActivity.class));
                                     progressBar.setVisibility(View.INVISIBLE);
                                 }
                             });
                         }
                         else{
-                            Toast.makeText(SignUp.this, "Error"+ Objects.requireNonNull(task.getException()).getMessage(), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(SignUpActivity.this, "Error"+ Objects.requireNonNull(task.getException()).getMessage(), Toast.LENGTH_SHORT).show();
                             progressBar.setVisibility(View.GONE);
                         }
                     }

@@ -42,4 +42,8 @@
     <string name="capture_image">Capture Image</string>
     <string name="hi_there_welcome">Hi There, Welcome</string>
     <string name="add_data">Add data</string>
+    <string name="forgot_password">Forgot Password?</string>
+    <string name="sign_in_to_continue">Sign in to continue</string>
+    <string name="user_email">User Email</string>
+    <string name="password">Password</string>
 </resources>

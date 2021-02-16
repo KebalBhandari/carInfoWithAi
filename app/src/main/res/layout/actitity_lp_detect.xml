@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/change"
-    tools:context=".LP_detect">
+    tools:context=".Activity.LPDetectActivity">
     <RelativeLayout
         android:id="@+id/doit"
         android:layout_width="match_parent"

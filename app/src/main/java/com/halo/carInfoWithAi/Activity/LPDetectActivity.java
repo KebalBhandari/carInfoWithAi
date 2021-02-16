@@ -1,4 +1,4 @@
-package com.halo.carInfoWithAi;
+package com.halo.carInfoWithAi.Activity;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -13,7 +13,6 @@ import android.os.Bundle;
 import java.io.IOException;
 import android.util.Log;
 import android.util.SparseArray;
-import android.view.LayoutInflater;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.view.View;
@@ -25,7 +24,10 @@ import com.google.android.gms.vision.CameraSource;
 import com.google.android.gms.vision.Detector;
 import com.google.android.gms.vision.text.TextBlock;
 import com.google.android.gms.vision.text.TextRecognizer;
-public class LP_detect extends AppCompatActivity {
+import com.halo.carInfoWithAi.QueryFragment;
+import com.halo.carInfoWithAi.R;
+
+public class LPDetectActivity extends AppCompatActivity {
 
 
 
@@ -70,7 +72,7 @@ public class LP_detect extends AppCompatActivity {
                 layout.setVisibility(View.INVISIBLE);
 
 
-                Query fragment = Query.newInstance(textOfImage);
+                QueryFragment fragment = QueryFragment.newInstance(textOfImage);
                 FragmentManager fragmentManager = getSupportFragmentManager();
                 FragmentTransaction transaction = fragmentManager.beginTransaction();
 //                    transaction.setCustomAnimations(R.anim.left_enter, R.anim.right_enter, R.anim.left_enter, R.anim.right_enter);
@@ -101,7 +103,7 @@ public class LP_detect extends AppCompatActivity {
                     try {
                         if (ActivityCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
 
-                            ActivityCompat.requestPermissions(LP_detect.this,
+                            ActivityCompat.requestPermissions(LPDetectActivity.this,
                                     new String[]{Manifest.permission.CAMERA},
                                     RequestCameraPermissionID);
                             return;

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layoutDescription="@xml/motion_scene_splash"
-    tools:context=".SignUp"
+    tools:context=".Activity.SignUpActivity"
     tools:visibility="visible">
 
 

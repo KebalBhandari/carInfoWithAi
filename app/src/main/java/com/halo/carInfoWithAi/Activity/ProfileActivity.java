@@ -1,30 +1,18 @@
-package com.halo.carInfoWithAi;
+package com.halo.carInfoWithAi.Activity;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.drawable.RoundedBitmapDrawableFactory;
 
-import android.app.Activity;
-import android.content.ContentResolver;
-import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
-import android.provider.MediaStore;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
-import android.webkit.MimeTypeMap;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
@@ -36,10 +24,10 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
-import com.google.firebase.storage.UploadTask;
+import com.halo.carInfoWithAi.R;
 import com.squareup.picasso.Picasso;
 
-public class profile extends AppCompatActivity {
+public class ProfileActivity extends AppCompatActivity {
     private static final int GALLERY_INTENT_CODE = 1023 ;
     TextView fullName,email,phone, UserName;
     FirebaseAuth fAuth;
@@ -84,7 +72,7 @@ public class profile extends AppCompatActivity {
         eProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent editIntent = new Intent(profile.this, EditProfile.class);
+                Intent editIntent = new Intent(ProfileActivity.this, EditProfileActivity.class);
                 startActivity(editIntent);
             }
         });
@@ -97,21 +85,21 @@ public class profile extends AppCompatActivity {
                     case R.id.logout:
                         fAuth.signOut();
                         if(fAuth.getCurrentUser()==null){
-                            Toast.makeText(profile.this, "Logout Successful.", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(ProfileActivity.this, "Logout Successful.", Toast.LENGTH_SHORT).show();
                             finish();
-                            startActivity(new Intent(getApplicationContext(), Login.class));
+                            startActivity(new Intent(getApplicationContext(), LoginActivity.class));
                         }
                         else{
-                            Toast.makeText(profile.this, "Error !!! Logout Not Success.", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(ProfileActivity.this, "Error !!! Logout Not Success.", Toast.LENGTH_SHORT).show();
                             return false;
                         }
                         break;
                     case R.id.profileView:
-                        Intent profileIntent = new Intent(profile.this, profile.class);
+                        Intent profileIntent = new Intent(ProfileActivity.this, ProfileActivity.class);
                         startActivity(profileIntent);
                         break;
                     case R.id.home:
-                        Intent MainActivity = new Intent(profile.this, MainActivity.class);
+                        Intent MainActivity = new Intent(ProfileActivity.this, MainActivity.class);
                         startActivity(MainActivity);
                         break;
                 }

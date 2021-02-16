@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:visibility="visible"
     app:layoutDescription="@xml/motion_scene_splash"
-    tools:context=".Activity_Splash_Login">
+    tools:context=".Activity.SplashScreenActivity">
 
     <ImageView
         android:id="@+id/profileImageView"

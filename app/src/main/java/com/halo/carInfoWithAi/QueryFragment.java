@@ -13,10 +13,10 @@ import android.widget.EditText;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link Query#newInstance} factory method to
+ * Use the {@link QueryFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class Query extends Fragment {
+public class QueryFragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -25,7 +25,7 @@ public class Query extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
 
-    public Query() {
+    public QueryFragment() {
         // Required empty public constructor
     }
 
@@ -37,8 +37,8 @@ public class Query extends Fragment {
      * @return A new instance of fragment textShowFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static Query newInstance(String param1) {
-        Query fragment = new Query();
+    public static QueryFragment newInstance(String param1) {
+        QueryFragment fragment = new QueryFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         fragment.setArguments(args);

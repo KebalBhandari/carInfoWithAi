@@ -2,43 +2,64 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="horizontal"
-        android:background="@color/colorPrimaryDark">
+        android:background="@drawable/border"
+        android:orientation="horizontal">
+
         <RelativeLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="2"
-            >
+            android:layout_weight="2">
+
+            <TextView
+                android:id="@+id/carPlate"
+                android:layout_width="126dp"
+                android:layout_height="95dp"
+                android:layout_marginStart="@dimen/activity_horizontal_margin"
+                android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="@string/number_plate_info"
+                android:textAppearance="?android:textAppearanceMedium"
+                android:textColor="#FFE91E63" />
         </RelativeLayout>
+
         <RelativeLayout
             android:layout_width="0dp"
-            android:layout_weight="4"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_weight="4">
+
             <TextView
-                android:id="@+id/title"
-                android:layout_width="wrap_content"
+                android:id="@+id/carName"
+                android:layout_width="273dp"
                 android:layout_height="wrap_content"
-                android:text="title here"
-                android:textColor="@android:color/black"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="0dp"
+                android:gravity="center"
+                android:maxLines="1"
+                android:padding="10dp"
+                android:text="@string/company_name"
                 android:textAppearance="?android:textAppearanceLarge"
-                android:gravity="center"
-                android:padding="10dp"
-                android:maxLines="1"/>
+                android:textColor="@android:color/black" />
+
             <TextView
-                android:id="@+id/note"
-                android:layout_width="wrap_content"
+                android:id="@+id/carOwnerName"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="note here"
-                android:textColor="@android:color/black"
-                android:textAppearance="?android:textAppearanceMedium"
+                android:layout_below="@+id/carName"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="0dp"
                 android:gravity="center"
-                android:layout_below="@+id/title"
+                android:maxLines="2"
                 android:padding="10dp"
-                android:maxLines="2"/>
+                android:text="@string/owner_name"
+                android:textAppearance="?android:textAppearanceMedium"
+                android:textColor="@android:color/black" />
         </RelativeLayout>
     </LinearLayout>
 </androidx.cardview.widget.CardView>

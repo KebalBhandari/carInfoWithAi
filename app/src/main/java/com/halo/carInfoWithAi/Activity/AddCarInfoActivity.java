@@ -1,4 +1,4 @@
-package com.halo.carInfoWithAi;
+package com.halo.carInfoWithAi.Activity;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -15,8 +15,9 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.halo.carInfoWithAi.Models.*;
+import com.halo.carInfoWithAi.R;
 
-public class Word extends AppCompatActivity  {
+public class AddCarInfoActivity extends AppCompatActivity  {
 
     public static final String TAG1 = "TAG";
     public static final String TAG2 = "TAG";
@@ -71,49 +72,6 @@ public class Word extends AppCompatActivity  {
             }
         });
 
-//        mSaveButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                final String numberPlate = nNumberInfo.getText().toString().trim();
-//                final String companyName = mCompanyName.getText().toString().trim();
-//                final String modelNo = mModelNo.getText().toString();
-//                final String ccData = mCcData.getText().toString();
-//
-//                final String manufactureDate = mManufactureDate.getText().toString().trim();
-//                final String ownerName = mOwnerName.getText().toString().trim();
-//                final String ownerAddress = mOwnerAddress.getText().toString();
-//                final String ownerContact = mOwnerContact.getText().toString();
-//                final String ownerOccupation = mOwnerOccupation.getText().toString();
-//                final String carColor = mColor.getText().toString();
-//                if (numberPlate.isEmpty()) {
-//                    nNumberInfo.setError("Number Plate Data is required");
-//                    return;
-//                }
-//                if (companyName.isEmpty()) {
-//                    mCompanyName.setError("Company Name cant be empty");
-//                    return;
-//                }
-//                if (modelNo.isEmpty()) {
-//                    mModelNo.setError("Model No cant be empty");
-//                    return;
-//                }
-//                if (ownerName.isEmpty()) {
-//                    mOwnerName.setError("Owner Name cant be empty");
-//                    return;
-//                }
-//                if (ownerContact.length() < 6) {
-//                    mOwnerContact.setError("Owner Contact must be >= 6 Characters");
-//                    return;
-//                }
-//                String id = mdatabase.push().getKey();
-//                String today_date = DateFormat.getDateInstance().format(new Date());
-//                Data data = new Data(mtitle, mnote, today_date, id);
-//                mdatabase.child(id).setValue(data);
-//                Toast.makeText(HomeActivity.this, "Data inserted", Toast.LENGTH_SHORT).show();
-//                dialog.dismiss();
-//            }
-//        });
-
         mSaveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -154,7 +112,8 @@ public class Word extends AppCompatActivity  {
                 String id = mDatabase.push().getKey();
                 Data data = new Data(numberPlate, companyName, modelNo,ccData,manufactureDate,ownerName,ownerAddress,ownerOccupation,ownerContact,carColor,id);
                 mDatabase.child(id).setValue(data);
-                Toast.makeText(Word.this, "Data inserted", Toast.LENGTH_SHORT).show();
+                Toast.makeText(AddCarInfoActivity.this, "Data inserted", Toast.LENGTH_SHORT).show();
+                onBackPressed();
             }
         });
     }

@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:visibility="visible"
     app:layoutDescription="@xml/motion_scene_splash"
-    tools:context=".Activity_Splash_Login">
+    tools:context=".Activity.SplashScreenActivity">
 
     <ImageView
         android:id="@+id/imgView_logo"
@@ -72,7 +72,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="sans-serif"
-            android:text="Sign in to continue"
+            android:text="@string/sign_in_to_continue"
             android:textColor="@color/textDescription"
             android:textSize="14sp" />
 
@@ -83,9 +83,8 @@
             android:layout_marginTop="30dp"
             android:background="@drawable/edittext_bg"
             android:drawableStart="@drawable/user_icon"
-            android:drawableLeft="@drawable/user_icon"
             android:drawablePadding="16dp"
-            android:hint="User Email"
+            android:hint="@string/user_email"
             android:inputType="textEmailAddress"
             android:padding="16dp"
             android:textSize="14sp" />
@@ -97,11 +96,8 @@
             android:layout_marginTop="20dp"
             android:background="@drawable/edittext_bg"
             android:drawableStart="@drawable/ic_baseline_lock_24"
-            android:drawableLeft="@drawable/ic_baseline_lock_24"
-            android:drawableEnd="@drawable/ic_baseline_visibility_24"
-            android:drawableRight="@drawable/ic_baseline_visibility_24"
             android:drawablePadding="16dp"
-            android:hint="Password"
+            android:hint="@string/password"
             android:inputType="textPassword"
             android:padding="16dp"
             android:textSize="14sp" />
@@ -116,20 +112,6 @@
             android:textColor="@color/white" />
 
     </LinearLayout>
-
-    <TextView
-        android:id="@+id/tv_forgotPassword"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="30dp"
-        android:layout_marginRight="30dp"
-        android:alpha="1"
-        android:text="Forgot Password?"
-        android:textColor="@color/textDescription"
-        android:textSize="13sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/linlay_inputs" />
 
     <TextView
         android:id="@+id/tv_register"

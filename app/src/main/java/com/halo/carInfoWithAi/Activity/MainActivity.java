@@ -1,4 +1,4 @@
-package com.halo.carInfoWithAi;
+package com.halo.carInfoWithAi.Activity;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -6,16 +6,13 @@ import androidx.cardview.widget.CardView;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
+import com.halo.carInfoWithAi.R;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -39,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
                         if(fAuth.getCurrentUser()==null){
                             Toast.makeText(MainActivity.this, "Logout Successful.", Toast.LENGTH_SHORT).show();
                             finish();
-                            startActivity(new Intent(getApplicationContext(), Login.class));
+                            startActivity(new Intent(getApplicationContext(), LoginActivity.class));
                         }
                         else{
                             Toast.makeText(MainActivity.this, "Error !!! Logout Not Success.", Toast.LENGTH_SHORT).show();
@@ -47,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
                         }
                         break;
                     case R.id.profileView:
-                        Intent profileIntent = new Intent(MainActivity.this, profile.class);
+                        Intent profileIntent = new Intent(MainActivity.this, ProfileActivity.class);
                         startActivity(profileIntent);
                         break;
                 }
@@ -59,8 +56,8 @@ public class MainActivity extends AppCompatActivity {
         EditData.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent editDataIntent = new Intent(MainActivity.this, Word.class);
-                startActivity(editDataIntent);
+                Intent detailsIntent = new Intent(MainActivity.this, CarListActivity.class);
+                startActivity(detailsIntent);
             }
         });
 
@@ -68,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
         profileDataInfo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent ProfileIntent = new Intent(MainActivity.this, profile.class);
+                Intent ProfileIntent = new Intent(MainActivity.this, ProfileActivity.class);
                 startActivity(ProfileIntent);
             }
         });
