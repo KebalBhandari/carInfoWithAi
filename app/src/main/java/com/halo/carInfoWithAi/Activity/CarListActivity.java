@@ -101,28 +101,19 @@ public class CarListActivity extends AppCompatActivity {
                 viewHolder.setCarOwnerName(data.getOwnerName());
                 viewHolder.setCarName(data.getCName());
 
-
                 viewHolder.myView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         post_key = getRef(i).getKey();
-//                        carName = data.getCName();
-//                        carOwnerName = data.getOwnerName();
-//                        carPlate = data.getNoPlate();
                         Intent intent = new Intent(CarListActivity.this, CarInfoDetailActivity.class);
                         intent.putExtra(EXTRA_POST_KEY , post_key);
                         startActivity(intent);
-
                     }
                 });
             }
         };
         recyclerView.setAdapter(adapter);
     }
-
-
-
-
 
 
     public static class myViewHolder extends RecyclerView.ViewHolder {

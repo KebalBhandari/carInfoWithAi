@@ -1,7 +1,7 @@
 <resources>
     <dimen name="fab_margin">16dp</dimen>
     <dimen name="activity_margin">16dp</dimen>
-    <dimen name="list_item_height">88dp</dimen>
+    <dimen name="list_item_height">92dp</dimen>
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="design_bottom_navigation_elevation">8dp</dimen>

@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    tools:context=".Activity.SplashScreenActivity">
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/colorTrendingEnd">
+        android:layout_height="wrap_content">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -26,7 +26,6 @@
                     android:text="@string/update_car_information"
                     android:textAppearance="?android:textAppearanceMedium"
                     android:textColor="#ffffff" />
-
             </RelativeLayout>
 
             <LinearLayout
@@ -135,6 +134,21 @@
                         android:textColor="#000000" />
 
 
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_height="wrap_content"
+                    android:layout_width="0dp">
+
+                    <EditText
+                        android:id="@+id/ID1"
+                        android:layout_width="276dp"
+                        android:layout_height="41dp"
+                        android:inputType="text"
+                        android:hint="@string/model_number_of_car"
+                        android:padding="10dp"
+                        android:textAppearance="?android:textAppearanceMedium"
+                        android:textColor="#000000" />
                 </RelativeLayout>
 
                 <RelativeLayout
@@ -451,7 +465,7 @@
                     android:layout_weight="3">
 
                     <EditText
-                        android:id="@+id/ownerOccupation"
+                        android:id="@+id/ownerOccupation1"
                         android:layout_width="287dp"
                         android:layout_height="41dp"
                         android:layout_marginStart="10dp"

@@ -110,7 +110,7 @@ public class AddCarInfoActivity extends AppCompatActivity  {
                 }
 
                 String id = mDatabase.push().getKey();
-                Data data = new Data(numberPlate, companyName, modelNo,ccData,manufactureDate,ownerName,ownerAddress,ownerOccupation,ownerContact,carColor,id);
+                Data data = new Data(numberPlate, companyName, modelNo,ccData,carColor,manufactureDate,ownerName,ownerAddress,ownerOccupation,ownerContact,id);
                 mDatabase.child(id).setValue(data);
                 Toast.makeText(AddCarInfoActivity.this, "Data inserted", Toast.LENGTH_SHORT).show();
                 onBackPressed();

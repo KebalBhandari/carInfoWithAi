@@ -10,14 +10,14 @@ public class Data {
     private String ManufactureDate;
     private String ownerName;
     private String ownerContactInfo;
-    private String ownerPhoneNo;
     private String ownerOccupation;
+    private String ownerPhoneNo;
     private String id;
 
     public Data() {
     }
 
-    public Data(String NoPlate, String CName, String modelNumber, String ccInfo,String colorInfo, String ManufactureDate, String ownerName, String ownerContactInfo, String ownerPhoneNo,String ownerOccupation,String id) {
+    public Data(String NoPlate, String CName, String modelNumber, String ccInfo,String colorInfo, String ManufactureDate, String ownerName, String ownerContactInfo,String ownerOccupation, String ownerPhoneNo,String id) {
         this.NoPlate = NoPlate;
         this.CName = CName;
         this.modelNumber = modelNumber;
@@ -26,8 +26,8 @@ public class Data {
         this.ManufactureDate = ManufactureDate;
         this.ownerName = ownerName;
         this.ownerContactInfo = ownerContactInfo;
-        this.ownerPhoneNo = ownerPhoneNo;
         this.ownerOccupation = ownerOccupation;
+        this.ownerPhoneNo = ownerPhoneNo;
         this.id = id;
     }
 
@@ -79,24 +79,28 @@ public class Data {
     public void setOwnerName(String ownerName) {
         this.ownerName = ownerName;
     }
+
     public String getOwnerContactInfo() {
         return ownerContactInfo;
     }
     public void setOwnerContactInfo(String ownerContactInfo) {
         this.ownerContactInfo = ownerContactInfo;
     }
-    public String getOwnerPhoneNo() {
-        return ownerPhoneNo;
-    }
-    public void setOwnerPhoneNo(String ownerPhoneNo) {
-        this.ownerPhoneNo = ownerPhoneNo;
-    }
+
     public String getOwnerOccupation() {
         return ownerOccupation;
     }
     public void setOwnerOccupation(String ownerOccupation) {
         this.ownerOccupation = ownerOccupation;
     }
+
+    public String getOwnerPhoneNo() {
+        return ownerPhoneNo;
+    }
+    public void setOwnerPhoneNo(String ownerPhoneNo) {
+        this.ownerPhoneNo = ownerPhoneNo;
+    }
+
     public String getId() {
         return id;
     }
