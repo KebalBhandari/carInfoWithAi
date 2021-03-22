@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "1075047195152-ahgp5pasr733ean6h0jlkanc9e67h0g0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.android.carInfoWithAi",
+            "certificate_hash": "353e16274a8d8cc3ba59636b350226d99eb188ad"
+          }
+        },
+        {
           "client_id": "1075047195152-hsgmqjq58vrpd9oo6tfo9mbdf7r42n66.apps.googleusercontent.com",
           "client_type": 3
         }

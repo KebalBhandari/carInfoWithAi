@@ -137,8 +137,10 @@ public class EditProfileActivity extends AppCompatActivity {
                         fAuth.signOut();
                         if(fAuth.getCurrentUser()==null){
                             Toast.makeText(EditProfileActivity.this, "Logout Successful.", Toast.LENGTH_SHORT).show();
+                            Intent intent = new Intent(EditProfileActivity.this, LoginActivity.class);
+                            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
+                            startActivity(intent);
                             finish();
-                            startActivity(new Intent(getApplicationContext(), LoginActivity.class));
                         }
                         else{
                             Toast.makeText(EditProfileActivity.this, "Error !!! Logout Not Success.", Toast.LENGTH_SHORT).show();

@@ -6,6 +6,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -48,14 +49,15 @@ public class LoginActivity extends AppCompatActivity {
                 startActivity(new Intent(getApplicationContext(), SignUpActivity.class));
             }
         });
-
+        Log.e(TAG, "onClick: Create");
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String email = mEmail.getText().toString().trim();
                 String password = mPassword.getText().toString().trim();
+
                 if (email.isEmpty()) {
-                    mEmail.setError("Email cant be empty");
+                    mEmail.setError("Email cant be emptyeeee");
                     return;
                 }
                 if (password.isEmpty()) {
@@ -68,14 +70,19 @@ public class LoginActivity extends AppCompatActivity {
                 }
                 progressBar.setVisibility(View.VISIBLE);
 
+
                 fAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
+                        Log.e(TAG, "onComplete: "+task.toString() );
+                        Log.e(TAG, "onComplete: "+task.isSuccessful() );
                         if (task.isSuccessful()) {
+                            Log.e(TAG, "onComplete:  is Suceess" );
                             Toast.makeText(LoginActivity.this, "Login Successful.", Toast.LENGTH_SHORT).show();
                             startActivity(new Intent(getApplicationContext(), MainActivity.class));
                             progressBar.setVisibility(View.INVISIBLE);
                         } else {
+                            Log.e(TAG, "onComplete:  is False" );
                             Toast.makeText(LoginActivity.this, "Error" + Objects.requireNonNull(task.getException()).getMessage(), Toast.LENGTH_SHORT).show();
                             progressBar.setVisibility(View.GONE);
                         }
@@ -85,5 +92,3 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 }
-
-

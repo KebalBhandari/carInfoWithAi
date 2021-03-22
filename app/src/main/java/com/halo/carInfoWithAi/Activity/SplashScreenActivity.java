@@ -6,6 +6,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -23,7 +24,7 @@ import java.util.Objects;
 
 
 public class SplashScreenActivity extends AppCompatActivity {
-    private static final String TAG = "Login";
+    private static final String TAG = "Spalcesss";
     EditText mPassword;
     EditText mEmail;
     Button login;
@@ -42,6 +43,8 @@ public class SplashScreenActivity extends AppCompatActivity {
         fAuth = FirebaseAuth.getInstance();
         progressBar = findViewById(R.id.progressBar);
 
+        Log.e(TAG, "onCreate: Splash" );
+
         signUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -52,6 +55,7 @@ public class SplashScreenActivity extends AppCompatActivity {
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+              ;
                 String email = mEmail.getText().toString().trim();
                 String password = mPassword.getText().toString().trim();
                 if (email.isEmpty()) {
@@ -67,15 +71,18 @@ public class SplashScreenActivity extends AppCompatActivity {
                     return;
                 }
                 progressBar.setVisibility(View.VISIBLE);
-
                 fAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
+                        Log.e(TAG, "onClick:"+task.isSuccessful());
                         if (task.isSuccessful()) {
+
                             Toast.makeText(SplashScreenActivity.this, "Login Successful.", Toast.LENGTH_SHORT).show();
                             startActivity(new Intent(getApplicationContext(), MainActivity.class));
                             progressBar.setVisibility(View.INVISIBLE);
+
                         } else {
+
                             Toast.makeText(SplashScreenActivity.this, "Error" + Objects.requireNonNull(task.getException()).getMessage(), Toast.LENGTH_SHORT).show();
                             progressBar.setVisibility(View.GONE);
                         }

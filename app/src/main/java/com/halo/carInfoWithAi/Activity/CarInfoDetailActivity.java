@@ -13,8 +13,10 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -26,6 +28,7 @@ import com.halo.carInfoWithAi.Models.Data;
 import com.halo.carInfoWithAi.R;
 
 import java.util.HashMap;
+import java.util.Objects;
 
 import static java.security.AccessController.getContext;
 
@@ -100,23 +103,29 @@ public class CarInfoDetailActivity extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
              Log.e("snapshot",snapshot.getValue()+"");
-             HashMap hashMap = ((HashMap) snapshot.getValue());
-              Data data = new Data(
-                      hashMap.get("noPlate").toString(),
-                      hashMap.get("cname").toString(),
-                      hashMap.get("modelNumber").toString(),
-                      hashMap.get("ccInfo").toString(),
-                      hashMap.get("colorInfo").toString(),
-                      hashMap.get("manufactureDate").toString(),
-                      hashMap.get("ownerName").toString(),
-                      hashMap.get("ownerContactInfo").toString(),
-                      hashMap.get("ownerOccupation").toString(),
-                      hashMap.get("ownerPhoneNo").toString(),
-                      hashMap.get("id").toString()
-              );
-                //Log.e("snapshot data",data.toString()+"");
-                CarInfoDetailActivity.this.data= data;
-                CarInfoDetailActivity.this.initData();
+             if(snapshot.getValue()!=null) {
+                 HashMap hashMap = ((HashMap) snapshot.getValue());
+                 Data data = new Data(
+                         hashMap.get("noPlate").toString(),
+                         hashMap.get("cname").toString(),
+                         hashMap.get("modelNumber").toString(),
+                         hashMap.get("ccInfo").toString(),
+                         hashMap.get("colorInfo").toString(),
+                         hashMap.get("manufactureDate").toString(),
+                         hashMap.get("ownerName").toString(),
+                         hashMap.get("ownerContactInfo").toString(),
+                         hashMap.get("ownerOccupation").toString(),
+                         hashMap.get("ownerPhoneNo").toString(),
+                         hashMap.get("id").toString()
+                 );
+                 //Log.e("snapshot data",data.toString()+"");
+                 CarInfoDetailActivity.this.data = data;
+                 CarInfoDetailActivity.this.initData();
+             }
+             else{
+                 CarInfoDetailActivity.this.data = new Data();
+                 CarInfoDetailActivity.this.initData();
+             }
             }
 
             @Override
@@ -195,10 +204,19 @@ public class CarInfoDetailActivity extends AppCompatActivity {
         mDeleteButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v){
-                mDatabase.removeValue();
-                Toast.makeText(CarInfoDetailActivity.this, "Data Deleted Successfully", Toast.LENGTH_SHORT).show();
-                Intent detailsIntent = new Intent(CarInfoDetailActivity.this, CarListActivity.class);
-                startActivity(detailsIntent);
+                Task<Void> deletedTask = mDatabase.removeValue();
+                deletedTask.addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        if (task.isSuccessful()) {
+                            Toast.makeText(CarInfoDetailActivity.this, "Data Deleted Successfully", Toast.LENGTH_SHORT).show();
+                            Intent detailsIntent = new Intent(CarInfoDetailActivity.this, CarListActivity.class);
+                            startActivity(detailsIntent);
+                        } else {
+                            Toast.makeText(CarInfoDetailActivity.this, "Error" + Objects.requireNonNull(task.getException()).getMessage(), Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
                 }
         });
     }
