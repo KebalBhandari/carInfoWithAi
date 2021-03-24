@@ -1,0 +1,14 @@
+<changelist name="Uncommitted_changes_before_Checkout_at_3_24_21_1_51_PM_[Default_Changelist]" date="1616573169816" recycled="true" deleted="true">
+  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_3_24_21_1_51_PM_[Default_Changelist]/shelved.patch" />
+  <option name="DESCRIPTION" value="Uncommitted changes before Checkout at 3/24/21 1:51 PM [Default Changelist]" />
+  <binary>
+    <option name="BEFORE_PATH" value=".idea/caches/build_file_checksums.ser" />
+    <option name="AFTER_PATH" value=".idea/caches/build_file_checksums.ser" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_3_24_21_1_51_PM_[Default_Changelist]/build_file_checksums.ser" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" />
+    <option name="AFTER_PATH" value="app/src/main/assets/model/model.tflite" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_3_24_21_1_51_PM_[Default_Changelist]/model.tflite" />
+  </binary>
+</changelist>

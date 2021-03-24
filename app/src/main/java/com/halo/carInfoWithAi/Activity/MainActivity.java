@@ -71,6 +71,15 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(ProfileIntent);
             }
         });
+
+        final CardView lpDetect = (CardView) findViewById(R.id.capture_image);
+        lpDetect.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent LpdetectIntent = new Intent(MainActivity.this, LPDetectActivity.class);
+                startActivity(LpdetectIntent);
+            }
+        });
     }
 }
 

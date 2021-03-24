@@ -87,7 +87,7 @@ public class CarInfoDetailActivity extends AppCompatActivity {
         fStore = FirebaseFirestore.getInstance();
         userID = fAuth.getCurrentUser().getUid();
         Log.e("postKey",postKey+"");
-        mDatabase = FirebaseDatabase.getInstance().getReference().child("CarInfoData").child(userID).child(postKey);
+        mDatabase = FirebaseDatabase.getInstance().getReference().child("CarInfoData").child(postKey);
         mDatabase.keepSynced(true);
 
         mBtnBack.setOnClickListener(new OnClickListener() {

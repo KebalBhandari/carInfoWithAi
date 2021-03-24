@@ -62,7 +62,7 @@ public class AddCarInfoActivity extends AppCompatActivity  {
         fStore=FirebaseFirestore.getInstance();
         userID = fAuth.getCurrentUser().getUid();
         recyclerView = findViewById(R.id.recycleView);
-        mDatabase = FirebaseDatabase.getInstance().getReference().child("CarInfoData").child(userID);
+        mDatabase = FirebaseDatabase.getInstance().getReference().child("CarInfoData");
         mDatabase.keepSynced(true);
         mBtnBack.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="Gradle: com.google.firebase:firebase-ml-vision-automl:18.0.6@aar">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/../.gradle/caches/transforms-2/files-2.1/f749569122b54eadda93956088871d1e/jetified-firebase-ml-vision-automl-18.0.6/res" />
+      <root url="jar://$PROJECT_DIR$/../.gradle/caches/transforms-2/files-2.1/82a8573d398b5fbb94a722fe691c7f8b/jetified-firebase-ml-vision-automl-18.0.6/jars/classes.jar!/" />
+      <root url="file://$PROJECT_DIR$/../.gradle/caches/transforms-2/files-2.1/82a8573d398b5fbb94a722fe691c7f8b/jetified-firebase-ml-vision-automl-18.0.6/res" />
+      <root url="file://$PROJECT_DIR$/../.gradle/caches/transforms-2/files-2.1/82a8573d398b5fbb94a722fe691c7f8b/jetified-firebase-ml-vision-automl-18.0.6/AndroidManifest.xml" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$PROJECT_DIR$/../.gradle/caches/modules-2/files-2.1/com.google.firebase/firebase-ml-vision-automl/18.0.6/3595118ed0ead1cee5178fbd6258f9199eb969a5/firebase-ml-vision-automl-18.0.6-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES />
+  </library>
+</component>
