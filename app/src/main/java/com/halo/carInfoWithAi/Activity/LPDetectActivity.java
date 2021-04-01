@@ -281,12 +281,12 @@ public class LPDetectActivity extends AppCompatActivity {
             public void onComplete(@NonNull Task<List<FirebaseVisionImageLabel>> task) {
                 progressDialog.cancel();
                 for (FirebaseVisionImageLabel label : task.getResult()) {
-                    String eachlabel = label.getText().toUpperCase();
+                    String eachLabel = label.getText().toUpperCase();
                      confidence = label.getConfidence();
-                    Log.e( "LANESS: ", eachlabel+eachlabel.toLowerCase().trim()+ eachlabel.toLowerCase().trim().equals("car"));
-                    textView.append(eachlabel + " - " + ("" + confidence * 100).subSequence(0, 4) + "%" + "\n\n");
+                    Log.e( "LANESS: ", eachLabel+eachLabel.toLowerCase().trim()+ eachLabel.toLowerCase().trim().equals("car"));
+                    textView.append(eachLabel + " - " + ("" + confidence * 100).subSequence(0, 4) + "%" + "\n\n");
 
-                    if(confidence>0.7 && eachlabel.toLowerCase().trim().equals("car")){
+                    if(confidence>0.7 && eachLabel.toLowerCase().trim().equals("car")){
                         // it is car
 
                         textView.setVisibility(View.VISIBLE);
@@ -297,11 +297,14 @@ public class LPDetectActivity extends AppCompatActivity {
                             Log.e("DAtasz",data.getNoPlate().trim() );
                             Log.e("DAtasz", data.getNoPlate().equals(textOfImage)+"");
                             if(data.getNoPlate().trim().equals(textOfImage.trim())){
-                                Intent intent= new Intent(LPDetectActivity.this,CarInfoDetailActivity.class);
-                                intent.putExtra(CarInfoDetailActivity.EXTRA_POST_KEY,data.getId());
+                                Intent intent= new Intent(LPDetectActivity.this,CarInfoByNumberPlateActivity.class);
+                                intent.putExtra(CarInfoByNumberPlateActivity.EXTRA_POST_KEY,data.getId());
                                 startActivity(intent);
                             }
                         }
+                    }
+                    else{
+                        textView.setVisibility(View.VISIBLE);
                     }
                 }
 //                Intent intent = new Intent();

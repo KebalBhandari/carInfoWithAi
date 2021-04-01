@@ -7,63 +7,73 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="129dp"
+        android:layout_height="62dp"
         android:background="@drawable/border"
         android:orientation="horizontal">
 
         <RelativeLayout
             android:layout_width="0dp"
-            android:layout_height="90dp"
-            android:layout_weight="2"
-            android:background="#856A1A">
+            android:layout_height="45dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_weight="1.5"
+            android:background="@drawable/edittext_bg">
 
             <TextView
                 android:id="@+id/carPlate"
-                android:layout_width="120dp"
-                android:layout_height="66dp"
+                android:layout_width="98dp"
+                android:layout_height="38dp"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentBottom="true"
                 android:layout_marginStart="@dimen/activity_horizontal_margin"
-                android:layout_marginEnd="13dp"
-                android:layout_marginBottom="9dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="3dp"
                 android:gravity="center"
-                android:padding="10dp"
+                android:padding="1dp"
                 android:text="@string/number_plate_info"
+                android:textAllCaps="true"
                 android:textAppearance="?android:textAppearanceMedium"
                 android:textColor="#FFE91E63" />
         </RelativeLayout>
 
         <RelativeLayout
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="45dp"
+            android:layout_marginTop="2dp"
             android:layout_weight="4">
 
             <TextView
                 android:id="@+id/carName"
-                android:layout_width="273dp"
-                android:layout_height="wrap_content"
+                android:layout_width="107dp"
+                android:layout_height="42dp"
+                android:layout_alignParentStart="true"
                 android:layout_alignParentEnd="true"
-                android:layout_marginEnd="5dp"
+                android:layout_marginEnd="189dp"
                 android:gravity="center"
                 android:maxLines="1"
-                android:padding="10dp"
+                android:padding="1dp"
                 android:text="@string/company_name"
-                android:textAppearance="?android:textAppearanceLarge"
-                android:textColor="@android:color/black" />
+                android:textAllCaps="true"
+                android:textColor="@android:color/black"
+                android:textSize="15dp"
+                android:textStyle="italic" />
 
             <TextView
                 android:id="@+id/carOwnerName"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/carName"
+                android:layout_width="173dp"
+                android:layout_height="42dp"
+                android:layout_alignParentTop="true"
                 android:layout_alignParentEnd="true"
-                android:layout_marginEnd="0dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="0dp"
                 android:gravity="center"
-                android:maxLines="2"
-                android:padding="10dp"
+                android:maxLines="1"
+                android:padding="1dp"
                 android:text="@string/owner_name"
+                android:textAllCaps="true"
                 android:textAppearance="?android:textAppearanceMedium"
-                android:textColor="@android:color/black" />
+                android:textColor="@android:color/black"
+                android:textStyle="bold" />
         </RelativeLayout>
     </LinearLayout>
 </androidx.cardview.widget.CardView>

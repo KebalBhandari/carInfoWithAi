@@ -19,7 +19,10 @@
         <activity android:name=".Activity.LPDetectActivity"/>
         <activity android:name=".Activity.CarListActivity" />
         <activity android:name=".Activity.MainActivity" />
+        <activity android:name=".Activity.AboutUsActivity" />
         <activity android:name=".Activity.CarInfoDetailActivity"/>
+        <activity android:name=".Activity.CarInfoByNumberPlateActivity"/>
+
         <activity android:name=".Activity.SplashScreenActivity">
              <intent-filter>
              <action android:name="android.intent.action.MAIN" />

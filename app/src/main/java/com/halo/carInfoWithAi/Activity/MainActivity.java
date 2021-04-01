@@ -76,8 +76,17 @@ public class MainActivity extends AppCompatActivity {
         lpDetect.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent LpdetectIntent = new Intent(MainActivity.this, LPDetectActivity.class);
-                startActivity(LpdetectIntent);
+                Intent lpDetectIntent = new Intent(MainActivity.this, LPDetectActivity.class);
+                startActivity(lpDetectIntent);
+            }
+        });
+
+        final CardView AboutUs = (CardView) findViewById(R.id.aboutUs);
+        AboutUs.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent aboutUs = new Intent(MainActivity.this, AboutUsActivity.class);
+                startActivity(aboutUs);
             }
         });
     }

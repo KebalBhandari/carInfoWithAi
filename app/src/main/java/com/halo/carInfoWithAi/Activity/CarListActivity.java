@@ -43,7 +43,7 @@ public class CarListActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         FirebaseUser mUser = mAuth.getCurrentUser();
         String uID = mUser.getUid();
-        mDatabase = FirebaseDatabase.getInstance().getReference().child("CarInfoData").child(uID);
+        mDatabase = FirebaseDatabase.getInstance().getReference().child("CarInfoData");
         mDatabase.keepSynced(true);
         recyclerView = findViewById(R.id.recycleView);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
@@ -131,7 +131,7 @@ public class CarListActivity extends AppCompatActivity {
 
         public void setCarName(String carName) {
             TextView carNameInfo = myView.findViewById(R.id.carName);
-            carNameInfo.setText(carName);
+            carNameInfo.setText('('+carName+')');
         }
 
         public void setCarOwnerName(String carOwnerName) {
