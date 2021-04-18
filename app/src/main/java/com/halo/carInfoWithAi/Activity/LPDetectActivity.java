@@ -241,11 +241,9 @@ public class LPDetectActivity extends AppCompatActivity {
                 for (FirebaseVisionImageLabel label : task.getResult()) {
                     String eachLabel = label.getText().toUpperCase();
                      confidence = label.getConfidence();
-                    Log.e( "LANESS: ", eachLabel+eachLabel.toLowerCase().trim()+ eachLabel.toLowerCase().trim().equals("car"));
+                   // Log.e( "LANESS: ", eachLabel+eachLabel.toLowerCase().trim()+ eachLabel.toLowerCase().trim().equals("car"));
                     textView.append(eachLabel + " - " + ("" + confidence * 100).subSequence(0, 4) + "%" + "\n\n");
-
                     if(confidence>0.7 && eachLabel.toLowerCase().trim().equals("car")){
-                        Toast.makeText(LPDetectActivity.this, "Success !!!.", Toast.LENGTH_SHORT).show();
                         textView.setVisibility(View.VISIBLE);
                         for(Data data:datas){
                             Log.e("DAtasz",data.toString() );
@@ -253,19 +251,21 @@ public class LPDetectActivity extends AppCompatActivity {
                             Log.e("DAtasz",data.getNoPlate().trim() );
                             Log.e("DAtasz", data.getNoPlate().equals(textOfImage)+"");
                             if(data.getNoPlate().trim().equals(textOfImage.trim())){
+                                Toast.makeText(LPDetectActivity.this, "Success !!!.", Toast.LENGTH_SHORT).show();
                                 Intent intent= new Intent(LPDetectActivity.this,CarInfoByNumberPlateActivity.class);
                                 intent.putExtra(CarInfoByNumberPlateActivity.EXTRA_POST_KEY,data.getId());
                                 startActivity(intent);
                             }
                             else{
                                 Toast.makeText(LPDetectActivity.this, "Data not available, Try Again !!!.", Toast.LENGTH_SHORT).show();
-                                textView.setText("Car not Detected, Try Again !!!.");
+                                textView.setText("Data not available, Try Again !!!.");
                             }
                         }
                     }
                     else{
-                        Toast.makeText(LPDetectActivity.this, "Car not Detected, Try Again !!!.", Toast.LENGTH_LONG).show();
+                        Toast.makeText(LPDetectActivity.this, "Car not Detected, Try Again !!!.", Toast.LENGTH_SHORT).show();
                         textView.setText("Car not Detected, Try Again !!!.");
+                        textView.setVisibility(View.VISIBLE);
                     }
                 }
             }
