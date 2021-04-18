@@ -89,20 +89,10 @@ public class LPDetectActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 CropImage.activity().start(LPDetectActivity.this);
-                //   fromRemoteModel();
             }
         });
 
         datas = new ArrayList<>();
-//        final String postKey = getIntent().getStringExtra(EXTRA_POST_KEY);
-//        if(postKey == null){
-//            onBackPressed();
-//            return;
-//        }
-//        fAuth = FirebaseAuth.getInstance();
-//        fStore = FirebaseFirestore.getInstance();
-//        userID = fAuth.getCurrentUser().getUid();
-//        Log.e("postKey",postKey+"");
         mDatabase = FirebaseDatabase.getInstance().getReference().child("CarInfoData");
         mDatabase.addValueEventListener(new ValueEventListener() {
             @Override
@@ -134,21 +124,6 @@ public class LPDetectActivity extends AppCompatActivity {
 
                      datas = ds;
                     Log.i("onDataChange","******************data added*"+ datas );
-//                    Data data = new Data(
-//                            hashMap.get("noPlate").toString(),
-//                            hashMap.get("cname").toString(),
-//                            hashMap.get("modelNumber").toString(),
-//                            hashMap.get("ccInfo").toString(),
-//                            hashMap.get("colorInfo").toString(),
-//                            hashMap.get("manufactureDate").toString(),
-//                            hashMap.get("ownerName").toString(),
-//                            hashMap.get("ownerContactInfo").toString(),
-//                            hashMap.get("ownerOccupation").toString(),
-//                            hashMap.get("ownerPhoneNo").toString(),
-//                            hashMap.get("id").toString()
-//                    );
-//                    //Log.e("snapshot data",data.toString()+"");
-//                    CarInfoDetailActivity.this.data = data;
                 }
             }
 
@@ -174,7 +149,6 @@ public class LPDetectActivity extends AppCompatActivity {
             image = FirebaseVisionImage.fromFilePath(LPDetectActivity.this, uri);
             processImageLabeler(labeler, image);
         } catch (FirebaseMLException | IOException e) {
-            // ...
         }
     }
 
@@ -185,34 +159,20 @@ public class LPDetectActivity extends AppCompatActivity {
             CropImage.ActivityResult result = CropImage.getActivityResult(data);
             if (resultCode == RESULT_OK) {
                 if (result != null) {
-                    Uri uri = result.getUri(); //path of image in phone
-                    imageView.setImageURI(uri); //set image in imageview
-                    textView.setText(""); //so that previous text don't get append with new one
+                    Uri uri = result.getUri();
+                    imageView.setImageURI(uri);
+                    textView.setText("");
                     setLabelerFromLocalModel(uri);
-                    // setLabelerFromRemoteLabel(uri);
                     if(imageView != null) {
 
                         TextRecognizer textRecognizer = new TextRecognizer.Builder(this).build();
 
                         if(!textRecognizer.isOperational()) {
-                            // Note: The first time that an app using a Vision API is installed on a
-                            // device, GMS will download a native libraries to the device in order to do detection.
-                            // Usually this completes before the app is run for the first time.  But if that
-                            // download has not yet completed, then the above call will not detect any text,
-                            // barcodes, or faces.
-                            // isOperational() can be used to check if the required native libraries are currently
-                            // available.  The detectors will automatically become operational once the library
-                            // downloads complete on device.
-//            Log.w(LOG_TAG, "Detector dependencies are not yet available.");
-
-                            // Check for low storage.  If there is low storage, the native library will not be
-                            // downloaded, so detection will not become operational.
                             IntentFilter lowstorageFilter = new IntentFilter(Intent.ACTION_DEVICE_STORAGE_LOW);
                             boolean hasLowStorage = registerReceiver(null, lowstorageFilter) != null;
 
                             if (hasLowStorage) {
                                 Toast.makeText(this,"Low Storage", Toast.LENGTH_LONG).show();
-//                Log.w(LOG_TAG, "Low Storage");
                             }
                         }
 
@@ -229,8 +189,6 @@ public class LPDetectActivity extends AppCompatActivity {
                             stringBuilder.append(textBlock.getValue());
                             stringBuilder.append("\n");
 
-//            Log.i(LOG_TAG, textBlock.getValue());
-//            // Do something with value
                         }
                         textView.setText(stringBuilder.toString());
                         textOfImage=textView.getText().toString();
@@ -287,10 +245,8 @@ public class LPDetectActivity extends AppCompatActivity {
                     textView.append(eachLabel + " - " + ("" + confidence * 100).subSequence(0, 4) + "%" + "\n\n");
 
                     if(confidence>0.7 && eachLabel.toLowerCase().trim().equals("car")){
-                        // it is car
-
+                        Toast.makeText(LPDetectActivity.this, "Success !!!.", Toast.LENGTH_SHORT).show();
                         textView.setVisibility(View.VISIBLE);
-
                         for(Data data:datas){
                             Log.e("DAtasz",data.toString() );
                             Log.e("DAtasz",textOfImage.trim() );
@@ -301,50 +257,17 @@ public class LPDetectActivity extends AppCompatActivity {
                                 intent.putExtra(CarInfoByNumberPlateActivity.EXTRA_POST_KEY,data.getId());
                                 startActivity(intent);
                             }
+                            else{
+                                Toast.makeText(LPDetectActivity.this, "Data not available, Try Again !!!.", Toast.LENGTH_SHORT).show();
+                                textView.setText("Car not Detected, Try Again !!!.");
+                            }
                         }
                     }
                     else{
-                        textView.setVisibility(View.VISIBLE);
+                        Toast.makeText(LPDetectActivity.this, "Car not Detected, Try Again !!!.", Toast.LENGTH_LONG).show();
+                        textView.setText("Car not Detected, Try Again !!!.");
                     }
                 }
-//                Intent intent = new Intent();
-//                intent.setAction(Intent.ACTION_VIEW);
-//                intent.setData(Uri.parse("https://www.google.com/search?q=" + task.getResult().get(0).getText()));
-//                startActivity(intent);
-
-//            TextRecognizer textRecognizer = new TextRecognizer.Builder(getApplicationContext()).build();
-//            if (!textRecognizer.isOperational()) {
-//                Log.w("LPDetectActivity", "Detector dependencies are not yet available");
-//            } else {
-//                textRecognizer.setProcessor(new Detector.Processor<TextBlock>() {
-//                    @Override
-//                    public void release() {
-//
-//                    }
-//                    @Override
-//                    public void receiveDetections(Detector.Detections<TextBlock> detections) {
-//
-//                        final SparseArray<TextBlock> items = detections.getDetectedItems();
-//                        if(items.size() != 0)
-//                        {
-//                            textView.post(new Runnable() {
-//                                @Override
-//                                public void run() {
-//                                    StringBuilder stringBuilder = new StringBuilder();
-//                                    for(int i =0;i<items.size();++i)
-//                                    {
-//                                        TextBlock item = items.valueAt(i);
-//                                        stringBuilder.append(item.getValue());
-//                                        stringBuilder.append("\n");
-//                                    }
-//                                    textView.setText(stringBuilder.toString());
-//                                    textOfImage=textView.getText().toString();
-//                                }
-//                            });
-//                        }
-//                    }
-//                });
-//            }
             }
 
 
@@ -361,7 +284,6 @@ public class LPDetectActivity extends AppCompatActivity {
         progressDialog.show();                                         /* model name*/
         remoteModel = new FirebaseAutoMLRemoteModel.Builder("CarDetectionModel").build();
         conditions = new FirebaseModelDownloadConditions.Builder().requireWifi().build();
-        //first download the model
         FirebaseModelManager.getInstance().download(remoteModel, conditions)
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override

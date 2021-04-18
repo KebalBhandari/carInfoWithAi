@@ -22,7 +22,7 @@ public class AboutUsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_about_us);
         Log.e(TAG, "onClick: Create");
         info = findViewById(R.id.detailsText);
-        info.setText("CAR INFO WITH AI is an application developed by Kebal Psd. Bhandari and Samir Thapa for fulfillment of BCA 8th Semester Project on android. Basically this application use TensorFlow ML kit and vision API to identify CAR from image and display car details along with owner information. ");
+        info.setText("CAR INFO WITH AI is an application developed by Kebal Psd. Bhandari, Saurav Subedi and Sameer Thapa for fulfillment of BCA 8th Semester Project on android. Basically this application use TensorFlow ML kit and vision API to identify CAR from image and display car details along with owners information. ");
         Bundle b = getIntent().getExtras();
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
         fAuth = FirebaseAuth.getInstance();
