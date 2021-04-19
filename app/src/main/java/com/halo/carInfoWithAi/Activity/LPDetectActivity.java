@@ -246,7 +246,7 @@ public class LPDetectActivity extends AppCompatActivity {
                     if(confidence>0.7 && eachLabel.toLowerCase().trim().equals("car")){
                         textView.setVisibility(View.VISIBLE);
                         for(Data data:datas){
-                            Log.e("DAtasz",data.toString() );
+                            Log.e("DAtasz",data.toString());
                             Log.e("DAtasz",textOfImage.trim() );
                             Log.e("DAtasz",data.getNoPlate().trim() );
                             Log.e("DAtasz", data.getNoPlate().equals(textOfImage)+"");
@@ -257,14 +257,14 @@ public class LPDetectActivity extends AppCompatActivity {
                                 startActivity(intent);
                             }
                             else{
-                                Toast.makeText(LPDetectActivity.this, "Data not available, Try Again !!!.", Toast.LENGTH_SHORT).show();
+                                //Toast.makeText(LPDetectActivity.this, "Data not available, Try Again !!!.", Toast.LENGTH_SHORT).show();
                                 textView.setText("Data not available, Try Again !!!.");
                             }
                         }
                     }
-                    else{
-                        Toast.makeText(LPDetectActivity.this, "Car not Detected, Try Again !!!.", Toast.LENGTH_SHORT).show();
-                        textView.setText("Car not Detected, Try Again !!!.");
+                    else if(confidence<0.7){
+                       // Toast.makeText(LPDetectActivity.this, "Car not Detected, Try Again !!!.", Toast.LENGTH_SHORT).show();
+                       // textView.setText("Car not Detected, Try Again !!!.");
                         textView.setVisibility(View.VISIBLE);
                     }
                 }
