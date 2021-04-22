@@ -72,6 +72,7 @@ public class LPDetectActivity extends AppCompatActivity {
     FirebaseFirestore fStore;
     DatabaseReference mDatabase;
     private  float confidence;
+    Integer count=0;
 
     private  List<Data> datas;
 
@@ -243,7 +244,7 @@ public class LPDetectActivity extends AppCompatActivity {
                      confidence = label.getConfidence();
                    // Log.e( "LANESS: ", eachLabel+eachLabel.toLowerCase().trim()+ eachLabel.toLowerCase().trim().equals("car"));
                     textView.append(eachLabel + " - " + ("" + confidence * 100).subSequence(0, 4) + "%" + "\n\n");
-                    if(confidence>0.7 && eachLabel.toLowerCase().trim().equals("car")){
+                    if(confidence>=0.6 && eachLabel.toLowerCase().trim().equals("car")){
                         textView.setVisibility(View.VISIBLE);
                         for(Data data:datas){
                             Log.e("DAtasz",data.toString());
@@ -257,15 +258,19 @@ public class LPDetectActivity extends AppCompatActivity {
                                 startActivity(intent);
                             }
                             else{
-                                //Toast.makeText(LPDetectActivity.this, "Data not available, Try Again !!!.", Toast.LENGTH_SHORT).show();
-                                textView.setText("Data not available, Try Again !!!.");
+                              count=count +1;
                             }
                         }
+                        count=count +1;
                     }
-                    else if(confidence<0.7){
+                    if(confidence<0.6){
                        // Toast.makeText(LPDetectActivity.this, "Car not Detected, Try Again !!!.", Toast.LENGTH_SHORT).show();
                         textView.setText("Car not Detected, Try Again !!!.");
                         textView.setVisibility(View.VISIBLE);
+                    }
+                    if(count !=0){
+                        //  Toast.makeText(LPDetectActivity.this, "Data not available, Try Again !!!.", Toast.LENGTH_SHORT).show();
+                        textView.setText("Data not available, Try Again !!!.");
                     }
                 }
             }
