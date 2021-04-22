@@ -264,7 +264,7 @@ public class LPDetectActivity extends AppCompatActivity {
                     }
                     else if(confidence<0.7){
                        // Toast.makeText(LPDetectActivity.this, "Car not Detected, Try Again !!!.", Toast.LENGTH_SHORT).show();
-                       // textView.setText("Car not Detected, Try Again !!!.");
+                        textView.setText("Car not Detected, Try Again !!!.");
                         textView.setVisibility(View.VISIBLE);
                     }
                 }
